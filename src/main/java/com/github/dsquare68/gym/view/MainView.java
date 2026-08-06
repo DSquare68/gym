@@ -1,7 +1,7 @@
 package com.github.dsquare68.gym.view;
 
 import com.github.dsquare68.gym.PluginInfo;
-
+import com.github.dsquare68.homeforgeapi.ui.BaseLayout;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.Paragraph;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
