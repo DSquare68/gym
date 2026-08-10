@@ -4,155 +4,75 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.github.dsquare68</groupId>
+    <!--
+        Dependencies, versions and the jar/shade build are all inherited.
+        See https://github.com/DSquare68/homeforge-plugin-template
+    -->
+    <parent>
+        <groupId>com.github.dsquare68</groupId>
+        <artifactId>homeforge-plugin-starter-parent</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath/>
+    </parent>
+
     <artifactId>gym</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>Gym Tracker</name>
-    <description>${pluginDescription}</description>
+    <description>Track workouts, personal records and progress charts.</description>
 
     <properties>
-        <java.version>25</java.version>
-        <maven.compiler.release>25</maven.compiler.release>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
         <!--
             ================================================================
-            PLUGIN CONFIGURATION - edit these two properties
+            PLUGIN CONFIGURATION
             ================================================================
-            plugin.path   : URL path served by HUB, e.g. /gym
-                            Accessible at https://hub.local/gym
-            plugin.schema : PostgreSQL schema for this plugin's tables,
-                            e.g. gym_schema
+            plugin.path   : URL path served by HUB - https://hub.local/gym
+            plugin.schema : PostgreSQL schema for this plugin's tables
+            The parent's maven-jar-plugin config writes these into
+            MANIFEST.MF; keep PluginInfo.java in sync with them.
             ================================================================
         -->
         <plugin.path>/gym</plugin.path>
         <plugin.schema>gym_schema</plugin.schema>
+        <plugin.bootstrap.class>com.github.dsquare68.gym.PluginBootstrap</plugin.bootstrap.class>
 
-        <!-- Keep in sync with the HUB host version -->
-        <hub-plugin-api.version>0.0.1-SNAPSHOT</hub-plugin-api.version>
-        <pf4j.version>3.12.0</pf4j.version>
-        <vaadin.version>24.5.0</vaadin.version>
-        <flyway.version>10.15.0</flyway.version>
+        <!-- Jackson 3 (tools.jackson), matching what flyway-core already pulls in. -->
+        <jackson.version>3.1.5</jackson.version>
     </properties>
 
     <dependencies>
         <!--
-            HUB Plugin API - the only compile-time dependency you need.
-            Everything else (Spring, Vaadin, PF4J, PostgreSQL driver) is
-            provided by the HUB host at runtime; keep them [provided] so
-            they are NOT bundled into the plugin jar.
+            Reads db/seed/exercises_merged_final_1.0.json at install time.
+            The parent supplies no JSON parser of its own; this is the same
+            version flyway-core brings in transitively, so the shaded jar ends
+            up with one JSON stack rather than two. Declared explicitly because
+            our code uses it directly - it must not silently disappear the day
+            Flyway drops or upgrades it.
         -->
         <dependency>
-            <groupId>com.github.dsquare68</groupId>
-            <artifactId>homeforge-api</artifactId>
-            <version>${hub-plugin-api.version}</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <!-- PF4J - provided by host -->
-        <dependency>
-            <groupId>org.pf4j</groupId>
-            <artifactId>pf4j</artifactId>
-            <version>${pf4j.version}</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <!-- Vaadin - provided by host -->
-        <dependency>
-            <groupId>com.vaadin</groupId>
-            <artifactId>vaadin-core</artifactId>
-            <version>${vaadin.version}</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <!--
-            Flyway - needed only at install time to run migrations.
-            Include it in the jar so the plugin is self-contained.
-        -->
-        <dependency>
-            <groupId>org.flywaydb</groupId>
-            <artifactId>flyway-core</artifactId>
-            <version>${flyway.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.flywaydb</groupId>
-            <artifactId>flyway-database-postgresql</artifactId>
-            <version>${flyway.version}</version>
-        </dependency>
-
-        <!-- Tests -->
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>5.11.0</version>
-            <scope>test</scope>
+            <groupId>tools.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
         </dependency>
     </dependencies>
 
     <build>
+        <!--
+            Coordinates only - all configuration lives in the parent's
+            <pluginManagement>.
+        -->
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.13.0</version>
-                <configuration>
-                    <release>${maven.compiler.release}</release>
-                </configuration>
             </plugin>
-
-            <!--
-                maven-jar-plugin - writes the PF4J manifest entries and
-                injects plugin.path / plugin.schema as MANIFEST attributes
-                so HUB can read them without loading the plugin class.
-            -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>3.4.2</version>
-                <configuration>
-                    <archive>
-                        <manifestEntries>
-                            <!-- PF4J required entries -->
-                            <Plugin-Id>${project.artifactId}</Plugin-Id>
-                            <Plugin-Version>${project.version}</Plugin-Version>
-                            <Plugin-Class>com.github.dsquare68.gym.PluginBootstrap</Plugin-Class>
-                            <!-- HUB custom entries - read by PluginManager without instantiation -->
-                            <Hub-Path>${plugin.path}</Hub-Path>
-                            <Hub-Schema>${plugin.schema}</Hub-Schema>
-                        </manifestEntries>
-                    </archive>
-                </configuration>
             </plugin>
-
-            <!--
-                maven-shade-plugin - bundles Flyway (and any other [compile]
-                dependencies) into a fat jar while excluding provided libs.
-            -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>3.6.0</version>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals><goal>shade</goal></goals>
-                        <configuration>
-                            <createDependencyReducedPom>false</createDependencyReducedPom>
-                            <filters>
-                                <filter>
-                                    <artifact>*:*</artifact>
-                                    <excludes>
-                                        <exclude>META-INF/*.SF</exclude>
-                                        <exclude>META-INF/*.DSA</exclude>
-                                        <exclude>META-INF/*.RSA</exclude>
-                                    </excludes>
-                                </filter>
-                            </filters>
-                        </configuration>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>

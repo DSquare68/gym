@@ -1,9 +1,11 @@
 # Gym Tracker
 
-${pluginDescription}
+Track workouts, personal records and progress charts.
 
-A [HUB](https://github.com/homeforge/hub) plugin generated from the
-`homeforge-plugin-archetype`.
+A [HUB](https://github.com/homeforge/hub) plugin. Its build config —
+dependencies, versions, jar/shade setup — is inherited from
+[`homeforge-plugin-starter-parent`](https://github.com/DSquare68/homeforge-plugin-template),
+so `pom.xml` here only declares this plugin's identity, path and schema.
 
 ## Plugin identity
 

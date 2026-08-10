@@ -3,9 +3,15 @@ package com.github.dsquare68.gym;
 import com.github.dsquare68.homeforgeapi.dashboard.WidgetDescriptor;
 import com.github.dsquare68.homeforgeapi.spi.HubApi;
 import com.github.dsquare68.homeforgeapi.spi.HubPlugin;
+import com.github.dsquare68.homeforgeapi.spi.PluginIcon;
 import com.github.dsquare68.homeforgeapi.spi.PluginMetadata;
+import com.github.dsquare68.gym.db.ExerciseNames;
+import com.github.dsquare68.gym.db.ExerciseNamesRepository;
+import com.github.dsquare68.gym.db.ExerciseSeed;
 import com.github.dsquare68.gym.view.DashboardWidget;
 import com.github.dsquare68.gym.view.MainView;
+
+import java.util.List;
 import com.vaadin.flow.router.RouteConfiguration;
 
 import org.flywaydb.core.Flyway;
@@ -33,7 +39,12 @@ public class HubPluginImpl implements HubPlugin {
     // State
     // -----------------------------------------------------------------------
 
+    private static final System.Logger LOG = System.getLogger(HubPluginImpl.class.getName());
+
     private HubApi api;
+
+    /** This plugin's own database, from the gym.properties HUB wrote into the jar. */
+    private PluginDb db;
 
     // -----------------------------------------------------------------------
     // HubPlugin SPI
@@ -60,14 +71,31 @@ public class HubPluginImpl implements HubPlugin {
     }
 
     /**
+     * Sidebar / plugin-manager icon.
+     *
+     * <p>The SPI default reads {@code icon.png} from the jar root; this plugin
+     * ships {@link PluginInfo#PLUGIN_ICON} instead, so the lookup has to be
+     * pointed at that name explicitly.
+     */
+    @Override
+    public byte[] getIconBytes() {
+        return PluginIcon.load(HubPluginImpl.class, PluginInfo.PLUGIN_ICON);
+    }
+
+    /**
      * Called once on first install.
      *
      * <p>Run Flyway migrations here so the plugin's tables exist before
-     * any user interacts with the plugin.
+     * any user interacts with the plugin. They run against this plugin's own
+     * PostgreSQL role — see {@link PluginDb}.
+     *
+     * <p>The exercise catalogue is seeded straight after, so the app is usable
+     * the moment it appears in the sidebar.
      */
     @Override
     public void onInstall(HubApi api) {
-        runMigrations(api);
+        runMigrations();
+        seedExerciseNames();
     }
 
     /**
@@ -78,6 +106,7 @@ public class HubPluginImpl implements HubPlugin {
     @Override
     public void onActivate(HubApi api) {
         this.api = api;
+        this.db = PluginDb.load();
 
         // Register a dashboard widget (optional - delete if not needed)
         api.dashboard().registerWidget(
@@ -114,6 +143,10 @@ public class HubPluginImpl implements HubPlugin {
     @Override
     public void onDeactivate() {
         api.dashboard().unregisterWidget(PluginInfo.PLUGIN_ID + ".summary");
+        if (db != null) {
+            db.close();
+            this.db = null;
+        }
         this.api = null;
     }
 
@@ -123,13 +156,12 @@ public class HubPluginImpl implements HubPlugin {
      */
     @Override
     public void onUninstall() {
-        // Uncomment to drop the schema on uninstall:
-        // try (var conn = api.storage().dataSource().getConnection();
-        //      var stmt = conn.createStatement()) {
-        //     stmt.execute("DROP SCHEMA IF EXISTS " + PluginInfo.PLUGIN_SCHEMA + " CASCADE");
-        // } catch (Exception e) {
-        //     throw new RuntimeException("Failed to drop plugin schema", e);
-        // }
+        // Nothing to do: HUB drops this plugin's role and schema when it is
+        // removed, along with the gym.properties file inside the jar.
+        if (db != null) {
+            db.close();
+            this.db = null;
+        }
     }
 
     // -----------------------------------------------------------------------
@@ -137,25 +169,66 @@ public class HubPluginImpl implements HubPlugin {
     // -----------------------------------------------------------------------
 
     /**
-     * Run Flyway migrations scoped to {@link PluginInfo#PLUGIN_SCHEMA}.
+     * Run Flyway migrations scoped to this plugin's own schema.
+     *
+     * <p>The DataSource comes from {@link PluginDb} — the credentials HUB
+     * generated for this plugin — not from {@code HubApi#storage()}, so the
+     * migrations run as the role that owns the schema and cannot touch anything
+     * else in the database.
      *
      * <p>Migration scripts live in
      * {@code src/main/resources/db/migration/} and must follow the naming
      * convention {@code V<version>__<description>.sql}.
      */
-    private void runMigrations(HubApi api) {
-        Flyway flyway = Flyway.configure()
-                .dataSource(api.storage().dataSource())
+    private void runMigrations() {
+        if (db == null) {
+            db = PluginDb.load();
+        }
+
+        // Configure with THIS plugin's classloader: Flyway defaults to the
+        // thread context classloader, which under PF4J belongs to the HUB
+        // host and cannot see db/migration inside the plugin jar.
+        Flyway flyway = Flyway.configure(HubPluginImpl.class.getClassLoader())
+                .dataSource(db.dataSource())
                 // Isolate history table inside the plugin schema
-                .table(PluginInfo.PLUGIN_SCHEMA + "_flyway_schema_history")
+                .table(db.schema() + "_flyway_schema_history")
                 // All migration scripts under db/migration/ in the plugin jar
                 .locations("classpath:db/migration")
-                // Create schema if it does not exist yet
-                .schemas(PluginInfo.PLUGIN_SCHEMA)
+                // HUB already created the schema; this keeps local runs working
+                .schemas(db.schema())
                 .createSchemas(true)
                 .load();
 
         flyway.migrate();
+    }
+
+    /**
+     * Load the base exercise set from {@link ExerciseSeed#SEED_RESOURCE} into
+     * {@code exercise_names}.
+     *
+     * <p>The insert skips names that already exist, so this is safe to run more
+     * than once: move the call from {@link #onInstall(HubApi)} to
+     * {@link #onActivate(HubApi)} if you want a shipped seed-file update to
+     * reach installs that already exist. Either way, exercises the user added
+     * themselves are never touched.
+     *
+     * <p>A failure here is logged rather than thrown - an empty catalogue is a
+     * recoverable annoyance, and the user can still add exercises by hand.
+     */
+    private void seedExerciseNames() {
+        if (db == null) {
+            db = PluginDb.load();
+        }
+
+        try {
+            List<ExerciseNames> seed = ExerciseSeed.load();
+            int inserted = new ExerciseNamesRepository(db).insertMissing(seed);
+            LOG.log(System.Logger.Level.INFO,
+                    "Exercise catalogue seeded: {0} of {1} rows inserted, the rest were already present.",
+                    inserted, seed.size());
+        } catch (RuntimeException e) {
+            LOG.log(System.Logger.Level.ERROR, "Could not seed the exercise catalogue.", e);
+        }
     }
 
     /** {@code "/my-plugin"} -&gt; {@code "my-plugin"} (Vaadin route format). */

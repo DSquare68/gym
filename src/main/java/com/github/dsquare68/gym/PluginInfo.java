@@ -17,11 +17,18 @@ public final class PluginInfo {
 
     public static final String PLUGIN_NAME = "Gym Tracker";
 
-    public static final String PLUGIN_VERSION = "${pluginVersion}";
+    public static final String PLUGIN_VERSION = "0.0.1-SNAPSHOT";
 
-    public static final String PLUGIN_DESC = "${pluginDescription}";
+    public static final String PLUGIN_DESC = "Track workouts, personal records and progress charts.";
 
     public static final String TITLE = "Gym Tracker";
+    
+    /**
+     * Classpath location of the sidebar/plugin-manager icon, relative to
+     * {@code src/main/resources/}. The file ships empty - replace it with a real
+     * PNG, or point this at another one and keep the name you prefer.
+     */
+    public static final String PLUGIN_ICON = "gym.png";
 
     private PluginInfo() {
     }

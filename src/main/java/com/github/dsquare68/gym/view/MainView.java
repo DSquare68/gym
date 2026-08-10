@@ -11,15 +11,16 @@ import com.vaadin.flow.router.Route;
 /**
  * Main view of this plugin.
  *
- * <p>{@code layout = Home.class} nests this view inside the HUB's shared
- * {@link Home} shell (navbar + drawer) so the plugin page renders within the
- * host chrome. {@code Home} lives in the {@code homeforge-api} jar, which the
- * HUB host loads with its parent classloader, so the plugin and host see the
- * same class - the requirement for Vaadin to match the layout across the PF4J
- * classloader boundary.
+ * <p>{@code layout = BaseLayout.class} nests this view inside the HUB's shared
+ * {@link BaseLayout} shell (navbar + drawer) so the plugin page renders within
+ * the host chrome. {@code BaseLayout} lives in the {@code homeforge-api} jar,
+ * which the HUB host loads with its parent classloader, so the plugin and host
+ * see the same class - the requirement for Vaadin to match the layout across
+ * the PF4J classloader boundary.
  *
- * <p>The route value here is a placeholder - HUB registers the actual route
- * dynamically via {@code com.github.dsquare68.gym.HubPluginImpl#registerRoutes} so this
+ * <p>The route value here mirrors {@link PluginInfo#PLUGIN_PATH} without its
+ * leading slash - HUB registers the actual route dynamically via
+ * {@link com.github.dsquare68.gym.HubPluginImpl#registerRoutes} so this
  * {@code @Route} annotation is used only during local development / unit tests.
  */
 @PageTitle(PluginInfo.TITLE)
