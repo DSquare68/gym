@@ -36,31 +36,32 @@
         <plugin.schema>gym_schema</plugin.schema>
         <plugin.bootstrap.class>com.github.dsquare68.gym.PluginBootstrap</plugin.bootstrap.class>
 
-        <!-- Jackson 3 (tools.jackson), matching what flyway-core already pulls in. -->
+        <!--
+            Jackson 3 (tools.jackson) - gym-specific: it parses this plugin's
+            exercise seed file. Same version flyway-core pulls in transitively,
+            so the shaded jar ends up with one JSON stack rather than two.
+        -->
         <jackson.version>3.1.5</jackson.version>
     </properties>
 
     <dependencies>
         <!--
             Reads db/seed/exercises_merged_final_1.0.json at install time.
-            The parent supplies no JSON parser of its own; this is the same
-            version flyway-core brings in transitively, so the shaded jar ends
-            up with one JSON stack rather than two. Declared explicitly because
-            our code uses it directly - it must not silently disappear the day
-            Flyway drops or upgrades it.
+            Declared explicitly because our code uses it directly - it must not
+            silently disappear the day Flyway drops or upgrades it.
         -->
         <dependency>
             <groupId>tools.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>${jackson.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
-        <!--
-            Coordinates only - all configuration lives in the parent's
-            <pluginManagement>.
-        -->
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

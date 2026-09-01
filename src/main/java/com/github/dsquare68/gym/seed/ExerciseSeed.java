@@ -1,9 +1,11 @@
-package com.github.dsquare68.gym.db;
+package com.github.dsquare68.gym.seed;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.github.dsquare68.gym.entity.ExerciseName;
 
 import tools.jackson.core.JacksonException;
 import tools.jackson.databind.JsonNode;
@@ -13,13 +15,13 @@ import tools.jackson.databind.ObjectMapper;
  * Reads the base exercise set shipped inside the plugin jar.
  *
  * <p>The file is an <em>initial dataset, not a hard dependency</em>: the
- * catalogue is a normal table that users keep adding to, so nothing here
- * assumes the seed is the complete picture.
+ * catalogue is a normal table that users keep adding to, so nothing here assumes
+ * the seed is the complete picture.
  *
  * <p>Parsing goes through {@link JsonNode} rather than data binding on purpose.
  * The seed format is not locked in, so a later revision can add fields (or a
- * whole new top-level key) without this loader throwing on properties it does
- * not recognise - it reads the three it needs and ignores the rest.
+ * whole new top-level key) without this loader throwing on properties it does not
+ * recognise - it reads the three it needs and ignores the rest.
  *
  * <p>Expected shape:
  * <pre>{@code
@@ -46,15 +48,16 @@ public final class ExerciseSeed {
     }
 
     /**
-     * Loads every exercise in the seed file, in file order.
+     * Loads every exercise in the seed file, in file order, as not-yet-persisted
+     * {@link ExerciseName} rows.
      *
-     * <p>Entries without a usable {@code name} are skipped rather than failing
-     * the whole load - one bad record should not stop the plugin installing.
+     * <p>Entries without a usable {@code name} are skipped rather than failing the
+     * whole load - one bad record should not stop the plugin installing.
      *
      * @throws IllegalStateException if the resource is missing or is not the
      *         expected shape, which means the jar was built wrong
      */
-    public static List<ExerciseNames> load() {
+    public static List<ExerciseName> load() {
         try (InputStream in = ExerciseSeed.class.getResourceAsStream(SEED_RESOURCE)) {
             if (in == null) {
                 throw new IllegalStateException(SEED_RESOURCE + " is missing from the plugin jar.");
@@ -66,13 +69,13 @@ public final class ExerciseSeed {
                 throw new IllegalStateException(SEED_RESOURCE + " has no '" + NODE_EXERCISES + "' array.");
             }
 
-            List<ExerciseNames> loaded = new ArrayList<>(exercises.size());
+            List<ExerciseName> loaded = new ArrayList<>(exercises.size());
             for (JsonNode exercise : exercises) {
                 String name = text(exercise, FIELD_NAME);
                 if (name == null) {
                     continue;
                 }
-                loaded.add(ExerciseNames.seeded(
+                loaded.add(ExerciseName.seeded(
                         name,
                         text(exercise, FIELD_CATEGORY),
                         text(exercise, FIELD_MAIN_MUSCLE)));
