@@ -19,7 +19,7 @@ import com.github.dsquare68.gym.entity.TrainingRecord;
 public interface TrainingRepository extends JpaRepository<TrainingRecord, Long> {
 
     /** This user's reusable schemes, newest first. */
-    List<TrainingRecord> findByUserIdAndTemplateTrueOrderByCreatedAtDesc(UUID userId);
+    List<TrainingRecord> findByUserIdAndTemplateTrueOrderByIdDesc(UUID userId);
 
     /** This user's performed sessions, newest first. */
     List<TrainingRecord> findByUserIdAndTemplateFalseOrderByPerformedOnDescIdDesc(UUID userId);
