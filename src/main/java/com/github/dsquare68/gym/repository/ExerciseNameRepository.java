@@ -6,6 +6,8 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import com.github.dsquare68.gym.entity.ExerciseName;
 
@@ -50,4 +52,14 @@ public interface ExerciseNameRepository extends JpaRepository<ExerciseName, Long
         saveAll(missing);
         return missing.size();
     }
+    
+	@Query(value = "SELECT MAX(ID) FROM ADMIN.exercise_names", nativeQuery = true)
+    Long findMaxId();
+
+	@Query(value="INSERT INTO ADMIN.EXERCISE_NAME (NAME,CATEGORY) VALUES (:#{#name.name},:#{#name.category})", nativeQuery = true)
+	void insert(@Param("name") ExerciseName name);
+	
+	Long findIDByName(String name);
+
+	ExerciseName getExerciseIdByName(String exercise);
 }

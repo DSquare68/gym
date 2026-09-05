@@ -49,6 +49,7 @@ public class TrainingRecord {
 
     @Column(name = "user_id", nullable = false)
     private UUID userId;
+    
 
     @Column(nullable = false)
     private String name;
@@ -59,7 +60,7 @@ public class TrainingRecord {
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     @JoinColumn(name = "exercise_name_id", nullable = false)
     private ExerciseName exerciseName;
-
+    
     /**
      * The scheme this session was built from. {@code null} for a scheme itself,
      * and for a one-off session logged without a plan.
@@ -83,4 +84,9 @@ public class TrainingRecord {
     /** JPA. */
     protected TrainingRecord() {
     }
+
+	public int getIS_SCHEMA() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }
