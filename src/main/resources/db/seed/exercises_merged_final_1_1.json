@@ -1,0 +1,690 @@
+{
+  "schema_version": "1.0",
+  "description": "Merged exercise database with separate English records for distinct Polish equipment variants. sztanga = barbell; sztangielka/sztangielki and hantle = dumbbell(s). 'name' is unique - it is the value inserted into ExerciseNames on first start.",
+  "fields": {
+    "name": "Exercise name - inserted into ExerciseNames.name by the start up procedure; unique across the file",
+    "category": "Primary exercise category"
+  },
+  "exercises": [
+    {
+      "name": "Bench Press",
+      "category": "Chest"
+    },
+    {
+      "name": "Barbell Bench Press",
+      "category": "Chest"
+    },
+    {
+      "name": "Dumbbell Bench Press",
+      "category": "Chest"
+    },
+    {
+      "name": "Incline Barbell Bench Press",
+      "category": "Chest"
+    },
+    {
+      "name": "Incline Dumbbell Bench Press",
+      "category": "Chest"
+    },
+    {
+      "name": "Decline Barbell Bench Press",
+      "category": "Chest"
+    },
+    {
+      "name": "Decline Dumbbell Bench Press",
+      "category": "Chest"
+    },
+    {
+      "name": "Chest Press",
+      "category": "Chest"
+    },
+    {
+      "name": "Machine Chest Press",
+      "category": "Chest"
+    },
+    {
+      "name": "Push-Up",
+      "category": "Chest"
+    },
+    {
+      "name": "Wide-Grip Push-Up",
+      "category": "Chest"
+    },
+    {
+      "name": "Diamond Push-Up",
+      "category": "Chest"
+    },
+    {
+      "name": "Flat Dumbbell Fly",
+      "category": "Chest"
+    },
+    {
+      "name": "Incline Dumbbell Fly",
+      "category": "Chest"
+    },
+    {
+      "name": "Cable Fly",
+      "category": "Chest"
+    },
+    {
+      "name": "Cable Crossover",
+      "category": "Chest"
+    },
+    {
+      "name": "Pec Deck",
+      "category": "Chest"
+    },
+    {
+      "name": "Chest Dips",
+      "category": "Chest"
+    },
+    {
+      "name": "Dumbbell Pullover",
+      "category": "Chest"
+    },
+    {
+      "name": "Barbell Pullover",
+      "category": "Chest"
+    },
+    {
+      "name": "Pull-Up",
+      "category": "Back"
+    },
+    {
+      "name": "Chin-Up",
+      "category": "Back"
+    },
+    {
+      "name": "Lat Pulldown",
+      "category": "Back"
+    },
+    {
+      "name": "Wide-Grip Lat Pulldown",
+      "category": "Back"
+    },
+    {
+      "name": "Close-Grip Lat Pulldown",
+      "category": "Back"
+    },
+    {
+      "name": "Seated Cable Row",
+      "category": "Back"
+    },
+    {
+      "name": "Cable Row",
+      "category": "Back"
+    },
+    {
+      "name": "Barbell Row",
+      "category": "Back"
+    },
+    {
+      "name": "Bent-Over Row",
+      "category": "Back"
+    },
+    {
+      "name": "Dumbbell Row",
+      "category": "Back"
+    },
+    {
+      "name": "One-Arm Dumbbell Row",
+      "category": "Back"
+    },
+    {
+      "name": "T-Bar Row",
+      "category": "Back"
+    },
+    {
+      "name": "Machine Row",
+      "category": "Back"
+    },
+    {
+      "name": "Chest-Supported Row",
+      "category": "Back"
+    },
+    {
+      "name": "Inverted Row",
+      "category": "Back"
+    },
+    {
+      "name": "Deadlift",
+      "category": "Back"
+    },
+    {
+      "name": "Rack Pull",
+      "category": "Back"
+    },
+    {
+      "name": "Straight-Arm Pulldown",
+      "category": "Back"
+    },
+    {
+      "name": "Back Extension",
+      "category": "Back"
+    },
+    {
+      "name": "Hyperextension",
+      "category": "Back"
+    },
+    {
+      "name": "Face Pull",
+      "category": "Back"
+    },
+    {
+      "name": "Overhead Press",
+      "category": "Shoulder"
+    },
+    {
+      "name": "Shoulder Press",
+      "category": "Shoulder"
+    },
+    {
+      "name": "Barbell Shoulder Press",
+      "category": "Shoulder"
+    },
+    {
+      "name": "Behind-the-Neck Barbell Press",
+      "category": "Shoulder"
+    },
+    {
+      "name": "Dumbbell Shoulder Press",
+      "category": "Shoulder"
+    },
+    {
+      "name": "Arnold Press",
+      "category": "Shoulder"
+    },
+    {
+      "name": "Machine Shoulder Press",
+      "category": "Shoulder"
+    },
+    {
+      "name": "Lateral Raise",
+      "category": "Shoulder"
+    },
+    {
+      "name": "Dumbbell Lateral Raise",
+      "category": "Shoulder"
+    },
+    {
+      "name": "Cable Lateral Raise",
+      "category": "Shoulder"
+    },
+    {
+      "name": "Barbell Front Raise",
+      "category": "Shoulder"
+    },
+    {
+      "name": "Front Raise",
+      "category": "Shoulder"
+    },
+    {
+      "name": "Dumbbell Front Raise",
+      "category": "Shoulder"
+    },
+    {
+      "name": "Dumbbell Rear Delt Fly",
+      "category": "Shoulder"
+    },
+    {
+      "name": "Rear Delt Fly",
+      "category": "Shoulder"
+    },
+    {
+      "name": "Reverse Fly",
+      "category": "Shoulder"
+    },
+    {
+      "name": "Reverse Pec Deck",
+      "category": "Shoulder"
+    },
+    {
+      "name": "Barbell Upright Row",
+      "category": "Shoulder"
+    },
+    {
+      "name": "Dumbbell Upright Row",
+      "category": "Shoulder"
+    },
+    {
+      "name": "Kettlebell Upright Row",
+      "category": "Shoulder"
+    },
+    {
+      "name": "Shrugs",
+      "category": "Shoulder"
+    },
+    {
+      "name": "Barbell Shrug",
+      "category": "Shoulder"
+    },
+    {
+      "name": "Behind-the-Back Barbell Shrug",
+      "category": "Shoulder"
+    },
+    {
+      "name": "Dumbbell Shrug",
+      "category": "Shoulder"
+    },
+    {
+      "name": "Barbell Curl",
+      "category": "Biceps"
+    },
+    {
+      "name": "Dumbbell Curl",
+      "category": "Biceps"
+    },
+    {
+      "name": "Alternating Dumbbell Curl",
+      "category": "Biceps"
+    },
+    {
+      "name": "Hammer Curl",
+      "category": "Biceps"
+    },
+    {
+      "name": "Incline Dumbbell Curl",
+      "category": "Biceps"
+    },
+    {
+      "name": "Preacher Curl",
+      "category": "Biceps"
+    },
+    {
+      "name": "Barbell Preacher Curl",
+      "category": "Biceps"
+    },
+    {
+      "name": "Dumbbell Preacher Curl",
+      "category": "Biceps"
+    },
+    {
+      "name": "Concentration Curl",
+      "category": "Biceps"
+    },
+    {
+      "name": "Cable Curl",
+      "category": "Biceps"
+    },
+    {
+      "name": "Cable Biceps Curl",
+      "category": "Biceps"
+    },
+    {
+      "name": "EZ-Bar Curl",
+      "category": "Biceps"
+    },
+    {
+      "name": "Spider Curl",
+      "category": "Biceps"
+    },
+    {
+      "name": "Barbell Reverse Curl",
+      "category": "Biceps"
+    },
+    {
+      "name": "Barbell Reverse Preacher Curl",
+      "category": "Biceps"
+    },
+    {
+      "name": "Machine Biceps Curl",
+      "category": "Biceps"
+    },
+    {
+      "name": "Triceps Pushdown",
+      "category": "Triceps"
+    },
+    {
+      "name": "Cable Pushdown",
+      "category": "Triceps"
+    },
+    {
+      "name": "Rope Pushdown",
+      "category": "Triceps"
+    },
+    {
+      "name": "Straight-Bar Pushdown",
+      "category": "Triceps"
+    },
+    {
+      "name": "Barbell Overhead Triceps Extension",
+      "category": "Triceps"
+    },
+    {
+      "name": "Single-Arm Dumbbell Overhead Triceps Extension",
+      "category": "Triceps"
+    },
+    {
+      "name": "Cable Overhead Extension",
+      "category": "Triceps"
+    },
+    {
+      "name": "Barbell Skull Crushers",
+      "category": "Triceps"
+    },
+    {
+      "name": "Dumbbell Lying Triceps Extension",
+      "category": "Triceps"
+    },
+    {
+      "name": "Close-Grip Barbell Bench Press",
+      "category": "Triceps"
+    },
+    {
+      "name": "Close-Grip Bench Press",
+      "category": "Triceps"
+    },
+    {
+      "name": "Triceps Dips",
+      "category": "Triceps"
+    },
+    {
+      "name": "Bench Dips",
+      "category": "Triceps"
+    },
+    {
+      "name": "Dumbbell Triceps Kickback",
+      "category": "Triceps"
+    },
+    {
+      "name": "Cable Kickback",
+      "category": "Triceps"
+    },
+    {
+      "name": "Machine Triceps Extension",
+      "category": "Triceps"
+    },
+    {
+      "name": "Leg Exercises — Quadriceps",
+      "category": "Triceps"
+    },
+    {
+      "name": "Barbell Back Squat",
+      "category": "Quadriceps"
+    },
+    {
+      "name": "Barbell Front Squat",
+      "category": "Quadriceps"
+    },
+    {
+      "name": "Goblet Squat",
+      "category": "Quadriceps"
+    },
+    {
+      "name": "Hack Squat",
+      "category": "Quadriceps"
+    },
+    {
+      "name": "Leg Press",
+      "category": "Quadriceps"
+    },
+    {
+      "name": "Bulgarian Split Squat",
+      "category": "Quadriceps"
+    },
+    {
+      "name": "Split Squat",
+      "category": "Quadriceps"
+    },
+    {
+      "name": "Lunges",
+      "category": "Quadriceps"
+    },
+    {
+      "name": "Walking Lunges",
+      "category": "Quadriceps"
+    },
+    {
+      "name": "Reverse Lunges",
+      "category": "Quadriceps"
+    },
+    {
+      "name": "Forward Lunges",
+      "category": "Quadriceps"
+    },
+    {
+      "name": "Step-Up",
+      "category": "Quadriceps"
+    },
+    {
+      "name": "Leg Extension",
+      "category": "Quadriceps"
+    },
+    {
+      "name": "Sissy Squat",
+      "category": "Quadriceps"
+    },
+    {
+      "name": "Romanian Deadlift",
+      "category": "Hamstring"
+    },
+    {
+      "name": "Barbell Stiff-Leg Deadlift",
+      "category": "Hamstring"
+    },
+    {
+      "name": "Barbell Conventional Deadlift",
+      "category": "Hamstring"
+    },
+    {
+      "name": "Good Morning",
+      "category": "Hamstring"
+    },
+    {
+      "name": "Lying Leg Curl",
+      "category": "Hamstring"
+    },
+    {
+      "name": "Seated Leg Curl",
+      "category": "Hamstring"
+    },
+    {
+      "name": "Standing Leg Curl",
+      "category": "Hamstring"
+    },
+    {
+      "name": "Nordic Hamstring Curl",
+      "category": "Hamstring"
+    },
+    {
+      "name": "Glute-Ham Raise",
+      "category": "Hamstring"
+    },
+    {
+      "name": "Single-Leg Romanian Deadlift",
+      "category": "Hamstring"
+    },
+    {
+      "name": "Hip Thrust",
+      "category": "Glute"
+    },
+    {
+      "name": "Barbell Hip Thrust",
+      "category": "Glute"
+    },
+    {
+      "name": "Glute Bridge",
+      "category": "Glute"
+    },
+    {
+      "name": "Single-Leg Glute Bridge",
+      "category": "Glute"
+    },
+    {
+      "name": "Donkey Kick",
+      "category": "Glute"
+    },
+    {
+      "name": "Sumo Squat",
+      "category": "Glute"
+    },
+    {
+      "name": "Hip Abduction",
+      "category": "Glute"
+    },
+    {
+      "name": "Cable Pull-Through",
+      "category": "Glute"
+    },
+    {
+      "name": "Standing Calf Raise",
+      "category": "Calf"
+    },
+    {
+      "name": "Seated Calf Raise",
+      "category": "Calf"
+    },
+    {
+      "name": "Leg Press Calf Raise",
+      "category": "Calf"
+    },
+    {
+      "name": "Donkey Calf Raise",
+      "category": "Calf"
+    },
+    {
+      "name": "Single-Leg Calf Raise",
+      "category": "Calf"
+    },
+    {
+      "name": "Calf Press",
+      "category": "Calf"
+    },
+    {
+      "name": "Crunch",
+      "category": "Core"
+    },
+    {
+      "name": "Sit-Up",
+      "category": "Core"
+    },
+    {
+      "name": "Reverse Crunch",
+      "category": "Core"
+    },
+    {
+      "name": "Bicycle Crunch",
+      "category": "Core"
+    },
+    {
+      "name": "Cable Crunch",
+      "category": "Core"
+    },
+    {
+      "name": "Hanging Leg Raise",
+      "category": "Core"
+    },
+    {
+      "name": "Hanging Knee Raise",
+      "category": "Core"
+    },
+    {
+      "name": "Leg Raise",
+      "category": "Core"
+    },
+    {
+      "name": "Knee Raise",
+      "category": "Core"
+    },
+    {
+      "name": "Plank",
+      "category": "Core"
+    },
+    {
+      "name": "Side Plank",
+      "category": "Core"
+    },
+    {
+      "name": "Mountain Climber",
+      "category": "Core"
+    },
+    {
+      "name": "Russian Twist",
+      "category": "Core"
+    },
+    {
+      "name": "V-Up",
+      "category": "Core"
+    },
+    {
+      "name": "Jackknife",
+      "category": "Core"
+    },
+    {
+      "name": "Flutter Kicks",
+      "category": "Core"
+    },
+    {
+      "name": "Dead Bug",
+      "category": "Core"
+    },
+    {
+      "name": "Ab Wheel Rollout",
+      "category": "Core"
+    },
+    {
+      "name": "Pallof Press",
+      "category": "Core"
+    },
+    {
+      "name": "Woodchopper",
+      "category": "Core"
+    },
+    {
+      "name": "Dragon Flag",
+      "category": "Core"
+    },
+    {
+      "name": "Burpee",
+      "category": "Full-Body"
+    },
+    {
+      "name": "Clean and Press",
+      "category": "Full-Body"
+    },
+    {
+      "name": "Clean and Jerk",
+      "category": "Full-Body"
+    },
+    {
+      "name": "Snatch",
+      "category": "Full-Body"
+    },
+    {
+      "name": "Kettlebell Swing",
+      "category": "Full-Body"
+    },
+    {
+      "name": "Thruster",
+      "category": "Full-Body"
+    },
+    {
+      "name": "Turkish Get-Up",
+      "category": "Full-Body"
+    },
+    {
+      "name": "Man Maker",
+      "category": "Full-Body"
+    },
+    {
+      "name": "Dumbbell Complex",
+      "category": "Full-Body"
+    },
+    {
+      "name": "Battle Rope Slams",
+      "category": "Full-Body"
+    },
+    {
+      "name": "Farmer's Walk",
+      "category": "Full-Body"
+    },
+    {
+      "name": "Sled Push",
+      "category": "Full-Body"
+    },
+    {
+      "name": "Sled Pull",
+      "category": "Full-Body"
+    }
+  ]
+}
