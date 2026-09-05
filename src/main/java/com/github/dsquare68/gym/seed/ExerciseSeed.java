@@ -42,7 +42,6 @@ public final class ExerciseSeed {
     private static final String NODE_EXERCISES = "exercises";
     private static final String FIELD_NAME = "name";
     private static final String FIELD_CATEGORY = "category";
-    private static final String FIELD_MAIN_MUSCLE = "main_muscle_working";
 
     private ExerciseSeed() {
     }
@@ -77,8 +76,7 @@ public final class ExerciseSeed {
                 }
                 loaded.add(ExerciseName.seeded(
                         name,
-                        text(exercise, FIELD_CATEGORY),
-                        text(exercise, FIELD_MAIN_MUSCLE)));
+                        text(exercise, FIELD_CATEGORY)));
             }
             return loaded;
         } catch (IOException | JacksonException e) {

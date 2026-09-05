@@ -27,9 +27,6 @@ public class ExerciseName {
     @Column(length = 64)
     private String category;
 
-    @Column(name = "main_muscle_working", length = 128)
-    private String mainMuscleWorking;
-
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 16)
     private Source source = Source.SEED;
@@ -38,24 +35,23 @@ public class ExerciseName {
     protected ExerciseName() {
     }
 
-    public ExerciseName(String name, String category, String mainMuscleWorking, Source source) {
+    public ExerciseName(String name, String category, Source source) {
         if (name == null || name.isBlank()) {
             throw new IllegalArgumentException("Exercise name must not be blank");
         }
         this.name = name.trim();
         this.category = category;
-        this.mainMuscleWorking = mainMuscleWorking;
         this.source = source == null ? Source.SEED : source;
     }
 
     /** A not-yet-persisted row read from the seed file. */
-    public static ExerciseName seeded(String name, String category, String mainMuscleWorking) {
-        return new ExerciseName(name, category, mainMuscleWorking, Source.SEED);
+    public static ExerciseName seeded(String name, String category) {
+        return new ExerciseName(name, category, Source.SEED);
     }
 
     /** A not-yet-persisted row the user added through the app. */
-    public static ExerciseName added(String name, String category, String mainMuscleWorking) {
-        return new ExerciseName(name, category, mainMuscleWorking, Source.USER);
+    public static ExerciseName added(String name, String category) {
+        return new ExerciseName(name, category, Source.USER);
     }
 
     @Override
