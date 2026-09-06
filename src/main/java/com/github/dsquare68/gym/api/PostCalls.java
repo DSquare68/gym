@@ -53,7 +53,7 @@ public class PostCalls {
 		ts = (ArrayList<TrainingRecord>) ts.stream().filter(e -> e != null)
 				.collect(java.util.stream.Collectors.toList());
 		long ID_TRAINING = trainingRepository.getMaxIDTrainingRecord() + 1;
-		TrainingRecord ID_SCHEMA = ts.get(0).getScheme(); // Assuming all records have the same schema
+		int ID_SCHEMA = ts.get(0).getScheme(); // Assuming all records have the same schema
 		if (ts.get(0).getIS_SCHEMA() == 1)
 			ID_SCHEMA = trainingRepository.getMaxIDSchema() + 1;
 		for (TrainingRecord e : ts) {

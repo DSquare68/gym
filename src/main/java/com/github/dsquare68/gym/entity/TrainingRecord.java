@@ -61,13 +61,8 @@ public class TrainingRecord {
     @JoinColumn(name = "exercise_name_id", nullable = false)
     private ExerciseName exerciseName;
     
-    /**
-     * The scheme this session was built from. {@code null} for a scheme itself,
-     * and for a one-off session logged without a plan.
-     */
-    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "scheme_id")
-    private TrainingRecord scheme;
+    private int scheme;
 
     @Column(name = "performed_on")
     private LocalDate performedOn;

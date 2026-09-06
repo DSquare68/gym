@@ -21,7 +21,7 @@ public class GetCalls {
 	
 	@GetMapping("/api/get/exercise_name/{id}")
 	public ExerciseName getExerciseName(@PathVariable("id") int id) {
-		return exerciseNameRepository.findById(id).orElse(null);
+		return exerciseNameRepository.findById((long) id).orElse(null);
 		}
 	@GetMapping("/api/get/exercises")
 	public List<ExerciseName> getExercises() {
