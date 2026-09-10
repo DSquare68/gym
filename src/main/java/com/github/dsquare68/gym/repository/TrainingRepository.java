@@ -12,14 +12,14 @@ import com.github.dsquare68.gym.entity.TrainingRecord;
 public interface TrainingRepository extends JpaRepository<TrainingRecord, Long> {
 
     /** This user's reusable schemes, newest first. */
-    List<TrainingRecord> findByUserIdAndTemplateTrueOrderByIdDesc(UUID userId);
+    //List<TrainingRecord> findByUserIdAndTemplateTrueOrderByIdDesc(UUID userId);
 
     /** This user's performed sessions, newest first. */
-    List<TrainingRecord> findByUserIdAndTemplateFalseOrderByPerformedOnDescIdDesc(UUID userId);
+    //List<TrainingRecord> findByUserIdAndTemplateFalseOrderByPerformedOnDescIdDesc(UUID userId);
 
     /** This user's performed sessions built from one scheme, newest first. */
-    List<TrainingRecord> findByUserIdAndTemplateFalseAndScheme_IdOrderByPerformedOnDescIdDesc(
-            UUID userId, Long schemeId);
+    //List<TrainingRecord> findByUserIdAndTemplateFalseAndScheme_IdOrderByPerformedOnDescIdDesc(
+            //UUID userId, Long schemeId);
 	@Query(value = "SELECT MAX(ID_TRAINING) FROM ADMIN.TRAININGS", nativeQuery = true)
 	int getMaxIDTrainingRecord();
 

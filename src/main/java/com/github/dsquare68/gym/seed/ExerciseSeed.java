@@ -37,7 +37,7 @@ import tools.jackson.databind.ObjectMapper;
 public final class ExerciseSeed {
 
     /** Classpath resource written into the jar from {@code src/main/resources}. */
-    public static final String SEED_RESOURCE = "/db/seed/exercises_merged_final_1.0.json";
+    public static final String SEED_RESOURCE = "/db/seed/exercises_merged_final_1.1.json";
 
     private static final String NODE_EXERCISES = "exercises";
     private static final String FIELD_NAME = "name";
