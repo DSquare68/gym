@@ -8,6 +8,8 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
+import jakarta.annotation.security.PermitAll;
+
 /**
  * Main view of this plugin.
  *
@@ -25,6 +27,7 @@ import com.vaadin.flow.router.Route;
  */
 @PageTitle(PluginInfo.TITLE)
 @Route(layout = BaseLayout.class, value = "gym")
+@PermitAll
 public class MainView extends VerticalLayout {
 
     public MainView() {

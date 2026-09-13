@@ -6,6 +6,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(
+		schema = "gym_schema",
         name = "exercise_names",
         uniqueConstraints = @UniqueConstraint(name = "uq_exercise_names_name", columnNames = "name"),
         indexes = @Index(name = "idx_exercise_names_category", columnList = "category"))
