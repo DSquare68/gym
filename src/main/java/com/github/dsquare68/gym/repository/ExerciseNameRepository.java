@@ -53,10 +53,10 @@ public interface ExerciseNameRepository extends JpaRepository<ExerciseName, Long
         return missing.size();
     }
     
-	@Query(value = "SELECT MAX(ID) FROM ADMIN.exercise_names", nativeQuery = true)
+	@Query(value = "SELECT MAX(ID) FROM gym_schema.exercise_names", nativeQuery = true)
     Long findMaxId();
 
-	@Query(value="INSERT INTO ADMIN.EXERCISE_NAME (NAME,CATEGORY) VALUES (:#{#name.name},:#{#name.category})", nativeQuery = true)
+	@Query(value="INSERT INTO gym_schema.EXERCISE_NAME (NAME,CATEGORY) VALUES (:#{#name.name},:#{#name.category})", nativeQuery = true)
 	void insert(@Param("name") ExerciseName name);
 	
 	Long findIDByName(String name);

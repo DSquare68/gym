@@ -49,12 +49,14 @@ public class GymTitle extends HorizontalLayout{
 		trainingsPerSchemaComboBox.setClassName("title-gym-combobox");
 		trainingsPerSchemaComboBox.addValueChangeListener(setTrainingView());
 		ArrayList<String> schemasData = new ArrayList<>();
-		trainingSchemas.forEach(e->{
-			String schemaString = e.getDate()+" "+e.getName();
-			schemasData.add(schemaString);
-			schemasMap.put(schemaString, e);
-		});
-		schemas.setItems(schemasData);
+		if(trainingSchemas!= null) {
+			trainingSchemas.forEach(e->{
+				String schemaString = e.getDate()+" "+e.getName();
+				schemasData.add(schemaString);
+				schemasMap.put(schemaString, e);
+			});
+			schemas.setItems(schemasData);
+		}
 		VerticalLayout vl = new VerticalLayout(schemas,trainingsPerSchemaComboBox);
 		vl.setId("title-gym-combobox-vl");
 		add(titlePage,vl,trainingName);

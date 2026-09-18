@@ -5,6 +5,7 @@ import java.util.Properties;
 import javax.sql.DataSource;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.JpaTransactionManager;
@@ -15,6 +16,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import com.github.dsquare68.gym.entity.ExerciseName;
 import com.github.dsquare68.gym.repository.ExerciseNameRepository;
 import com.github.dsquare68.gym.repository.TrainingRepository;
+import com.github.dsquare68.gym.service.ExerciseNamesServiceImpl;
 
 import jakarta.persistence.EntityManagerFactory;
 
@@ -40,10 +42,16 @@ import jakarta.persistence.EntityManagerFactory;
  * acceptable while the model is still exploratory; the day a change has to
  * backfill existing rows, add Flyway against the same {@code db().dataSource()}
  * and switch this to {@code validate}.
+ *
+ * <p>Also component-scans {@code com.github.dsquare68.gym.service}, so the
+ * {@code @Service} classes there (which depend on the repositories above via
+ * {@code @Autowired}) become real beans of this context too - see
+ * {@link GymPersistence#trainingService()} / {@link GymPersistence#exerciseNamesService()}.
  */
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(basePackageClasses = {ExerciseNameRepository.class,TrainingRepository.class})
+@ComponentScan(basePackageClasses = ExerciseNamesServiceImpl.class)
 public class GymPersistenceConfig {
 
     /** Entities are scanned from the package that holds {@link ExerciseName}. */
