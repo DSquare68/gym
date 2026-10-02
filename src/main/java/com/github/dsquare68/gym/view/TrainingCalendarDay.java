@@ -13,6 +13,7 @@ import com.vaadin.flow.component.ComponentUtil;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.theme.lumo.LumoUtility.Margin;
 
 
 public class TrainingCalendarDay extends VerticalLayout {
@@ -20,6 +21,9 @@ public class TrainingCalendarDay extends VerticalLayout {
 	private ArrayList<TrainingRecord> trainings;
 	public TrainingCalendarDay(TrainingServiceImpl trainingService) {
 		this.setId("training-calendar-day");
+		this.setWidthFull();
+		this.setHeight("300px");
+		this.addClassNames(GymStyles.CALENDAR_PANEL);
 		ComponentUtil.addListener(UI.getCurrent(),CalendarSelectedDayEvent.class,e->{
 			this.remove();
 			date = e.getSource().getDate();
@@ -37,18 +41,19 @@ public class TrainingCalendarDay extends VerticalLayout {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
 		Div numberOfTrainings = new Div("Data Treningu: "+String.valueOf(dateFormat.format(trainings2.get(0).getDATE_TRAINING())));
 		numberOfTrainings.setId("training-calendar-day-date");
-		numberOfTrainings.setClassName("training-calendar-day-data");
 		Div totalDuration = new Div("Długość treniningu: "+trainings2.get(0).getTIME_TRAINING());
 		totalDuration.setId("training-calendar-day-duration");
-		totalDuration.setClassName("training-calendar-day-data");
 		Div totalReps = new Div("Wszystkie powtórzenia: "+String.valueOf(trainings2.stream().mapToInt(TrainingRecord::getREPEAT).sum()));
 		totalReps.setId("training-calendar-day-total-reps");
-		totalReps.setClassName("training-calendar-day-data");
 		Div totalWeight = new Div(String.format("Suma obciążenia: %.1f kg", trainings2.stream().mapToDouble(e->e.getWEIGHT()).sum()));
 		totalWeight.setId("training-calendar-day-total-weight");
 		Div totalSets = new Div(String.format("Suma obciążenia: %.1f kg", trainings2.stream().mapToDouble(e->e.getWEIGHT()).sum()));
 		totalWeight.setId("training-calendar-day-total-weight");
-		totalWeight.setClassName("training-calendar-day-data");
+		for (Div row : new Div[] { numberOfTrainings, totalDuration, totalReps, totalWeight }) {
+			row.setHeight("50px");
+			row.addClassNames(GymStyles.CALENDAR_DATA);
+			row.addClassNames(Margin.Left.XLARGE);
+		}
 		this.add(numberOfTrainings, totalDuration, totalReps, totalWeight);
 	}
 	

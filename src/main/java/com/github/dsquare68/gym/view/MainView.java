@@ -19,6 +19,7 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.theme.lumo.LumoUtility.Margin;
 
 import jakarta.annotation.security.PermitAll;
 
@@ -53,6 +54,9 @@ public class MainView extends VerticalLayout {
 
 		trainings = new HorizontalLayout();
 		trainings.setId("trainings-hl");
+		trainings.setWidthFull();
+		trainings.setJustifyContentMode(JustifyContentMode.CENTER);
+		trainings.setAlignItems(Alignment.CENTER);
 		schemas = trainingService.getSchemasDataTraining();
 		exerciseNames = namesService.getAllExerciseNames();
 		title = new GymTitle(schemas);
@@ -68,6 +72,7 @@ public class MainView extends VerticalLayout {
 			Training  lastTraining = new Training();
 			schemaView = new TrainingView(schema,lastTraining);
 			schemaView.setId("schema-view-vl");
+			schemaView.addClassNames(Margin.Top.MEDIUM, Margin.Right.XLARGE);
 			this.trainings.add(schemaView);
 			schemaView.setWidth(40,Unit.PERCENTAGE);
 		});
@@ -78,6 +83,7 @@ public class MainView extends VerticalLayout {
 			Training  lastTraining = e.getSource().getPreviousTraining();
 			trainingView = new TrainingView(training,lastTraining);
 			trainingView.setId("training-view-vl");
+			trainingView.addClassNames(Margin.Top.MEDIUM, Margin.Left.XLARGE);
 			this.trainings.add(trainingView);
 			trainingView.setWidth(40,Unit.PERCENTAGE);
 		});

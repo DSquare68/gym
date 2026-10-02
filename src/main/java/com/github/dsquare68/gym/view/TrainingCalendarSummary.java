@@ -22,6 +22,7 @@ import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.theme.lumo.LumoUtility.Background;
 
 public class TrainingCalendarSummary extends HorizontalLayout {
 
@@ -29,8 +30,12 @@ public class TrainingCalendarSummary extends HorizontalLayout {
 	
 	public TrainingCalendarSummary(TrainingServiceImpl trainigService,ArrayList<TrainingRecord> trainings, int year, int mount) {
 		this.setId("training-calendar-summary");
+		this.setWidthFull();
 		VerticalLayout calendarWeeks = new VerticalLayout();
 		calendarWeeks.setId("calendar-weeks");
+		calendarWeeks.addClassNames(Background.SUCCESS_10);
+		calendarWeeks.setJustifyContentMode(JustifyContentMode.AROUND);
+		calendarWeeks.setAlignItems(Alignment.CENTER);
 		trainings.stream().sorted((e,r) -> e.getDATE_TRAINING().compareTo(r.getDATE_TRAINING()));
 		ArrayList<ArrayList<LocalDate>> weeks = new ArrayList<>();
 		//Map<Date, ArrayList<Date>> weeksMap = new LinkedHashMap<>();
@@ -82,7 +87,7 @@ public class TrainingCalendarSummary extends HorizontalLayout {
 		this.add(calendarWeeks,dayAndMonth);
 		ComponentUtil.addListener(UI.getCurrent(),CalendarSelectedDayEvent.class,e->{
 			if(selectedDay != null) 
-				selectedDay.removeClassName("calendar-day-label-trening-selected");
+				GymStyles.setSelected(selectedDay, false);
 			selectedDay = e.getSource();
 			
 	});

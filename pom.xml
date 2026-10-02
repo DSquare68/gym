@@ -42,6 +42,14 @@
             so the shaded jar ends up with one JSON stack rather than two.
         -->
         <jackson.version>3.1.5</jackson.version>
+
+        <!--
+            Emit Java 25 bytecode even when built on a newer JDK: Vaadin
+            25.1.x's frontend scanner can't read class file version 71
+            (Java 27), and the HUB host runs on Java 25.
+        -->
+        <java.version>25</java.version>
+        <maven.compiler.release>25</maven.compiler.release>
     </properties>
 
     <dependencies>

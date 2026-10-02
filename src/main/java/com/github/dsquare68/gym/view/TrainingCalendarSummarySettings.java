@@ -7,10 +7,13 @@ import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.HasValue.ValueChangeEvent;
 import com.vaadin.flow.component.HasValue.ValueChangeListener;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.theme.lumo.LumoUtility.FontSize;
+import com.vaadin.flow.theme.lumo.LumoUtility.Margin;
 
 import lombok.Getter;
 
@@ -29,10 +32,22 @@ public class TrainingCalendarSummarySettings extends HorizontalLayout {
 		Div trainings = new Div("Treningi");
 		comboBoxYear.setItems(years);
 		comboBoxMounth.setItems(mounths);
-		comboBoxYear.setClassName("combo-box-TCS-settings");
-		comboBoxMounth.setClassName("combo-box-TCS-settings");
+		this.setWidthFull();
+		this.setHeight("100px");
+		this.addClassNames(GymStyles.HEADER_BAR);
+		this.setJustifyContentMode(JustifyContentMode.CENTER);
+		this.setAlignItems(Alignment.CENTER);
+		for (ComboBox comboBox : new ComboBox[] { comboBoxYear, comboBoxMounth }) {
+			comboBox.setWidth("300px");
+			comboBox.addClassNames(FontSize.XXXLARGE, Margin.Left.XLARGE);
+		}
 		trainings.setId("trainings-label-TCS-settings");
+		trainings.addClassNames(GymStyles.HEADING);
+		trainings.addClassNames(Margin.Left.XLARGE, Margin.Right.XLARGE);
 		show.setId("training-button-TCS-settings");
+		show.setHeight("75px");
+		show.addThemeVariants(ButtonVariant.LUMO_PRIMARY, ButtonVariant.LUMO_SUCCESS, ButtonVariant.LUMO_LARGE);
+		show.addClassNames(FontSize.XXXLARGE, Margin.Left.XLARGE, Margin.Right.AUTO);
 		comboBoxYear.addValueChangeListener(setTrainingCalendarLisener());
 		comboBoxMounth.addValueChangeListener(setTrainingCalendarLisener());
 		add(trainings,comboBoxMounth, comboBoxYear, show);

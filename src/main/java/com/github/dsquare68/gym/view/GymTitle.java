@@ -19,6 +19,13 @@ import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.theme.lumo.LumoUtility.AlignItems;
+import com.vaadin.flow.theme.lumo.LumoUtility.Display;
+import com.vaadin.flow.theme.lumo.LumoUtility.FontSize;
+import com.vaadin.flow.theme.lumo.LumoUtility.JustifyContent;
+import com.vaadin.flow.theme.lumo.LumoUtility.Margin;
+import com.vaadin.flow.theme.lumo.LumoUtility.MaxWidth;
+import com.vaadin.flow.theme.lumo.LumoUtility.TextColor;
 
 import lombok.Getter;
 
@@ -38,15 +45,25 @@ public class GymTitle extends HorizontalLayout{
 	private HashMap<String,Training> trainingMap = new HashMap<>();
 	public GymTitle(ArrayList<Training> trainingSchemas) {
 		this.setId("title-gym-hl");
+		this.setWidthFull();
+		this.setHeight("200px");
+		this.addClassNames(GymStyles.HEADER_BAR);
+		this.setJustifyContentMode(JustifyContentMode.CENTER);
+		this.setAlignItems(Alignment.CENTER);
 		UI ui = UI.getCurrent();
 		titlePage = new Div("Trening's Overview");
-		titlePage.setClassName("title-gym-div");
 		trainingName = new Div("Choose training");
-		trainingName.setClassName("title-gym-div");
+		for (Div div : new Div[] { titlePage, trainingName }) {
+			div.setWidth("30%");
+			div.addClassNames(GymStyles.HEADING);
+			div.addClassNames(Display.FLEX, JustifyContent.CENTER, AlignItems.CENTER);
+		}
 		schemas = new ComboBox();
-		schemas.setClassName("title-gym-combobox");
 		trainingsPerSchemaComboBox = new ComboBox();
-		trainingsPerSchemaComboBox.setClassName("title-gym-combobox");
+		for (ComboBox comboBox : new ComboBox[] { schemas, trainingsPerSchemaComboBox }) {
+			comboBox.setWidth("600px");
+			comboBox.addClassNames(FontSize.XXXLARGE, TextColor.SUCCESS, MaxWidth.FULL);
+		}
 		trainingsPerSchemaComboBox.addValueChangeListener(setTrainingView());
 		ArrayList<String> schemasData = new ArrayList<>();
 		if(trainingSchemas!= null) {
@@ -59,6 +76,10 @@ public class GymTitle extends HorizontalLayout{
 		}
 		VerticalLayout vl = new VerticalLayout(schemas,trainingsPerSchemaComboBox);
 		vl.setId("title-gym-combobox-vl");
+		vl.setWidth("40%");
+		vl.addClassNames(Margin.Horizontal.AUTO);
+		vl.setJustifyContentMode(JustifyContentMode.CENTER);
+		vl.setAlignItems(Alignment.CENTER);
 		add(titlePage,vl,trainingName);
 	}
 	private ValueChangeListener setTrainingView() {

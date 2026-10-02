@@ -10,11 +10,22 @@ import com.github.dsquare68.gym.model.ExerciseDetailsData;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.theme.lumo.LumoUtility.AlignItems;
+import com.vaadin.flow.theme.lumo.LumoUtility.Background;
+import com.vaadin.flow.theme.lumo.LumoUtility.Display;
+import com.vaadin.flow.theme.lumo.LumoUtility.FlexDirection;
+import com.vaadin.flow.theme.lumo.LumoUtility.JustifyContent;
+import com.vaadin.flow.theme.lumo.LumoUtility.Margin;
+import com.vaadin.flow.theme.lumo.LumoUtility.Padding;
+import com.vaadin.flow.theme.lumo.LumoUtility.TextAlignment;
 
 public class ExerciseDetails extends HorizontalLayout {
 
 	public ExerciseDetails(ArrayList<TrainingRecord> trainingsWithExercise) {
-		this.setClassName("exercise-details-layout");
+		this.setWidthFull();
+		this.setHeight("400px");
+		this.setJustifyContentMode(JustifyContentMode.AROUND);
+		this.addClassNames(Padding.Top.XLARGE, TextAlignment.CENTER, Background.PRIMARY_10);
 		int allCount = trainingsWithExercise.size();
 		Object[] weights = trainingsWithExercise.stream()
 								.mapToDouble(TrainingRecord::getWEIGHT)
@@ -39,62 +50,49 @@ public class ExerciseDetails extends HorizontalLayout {
 		int[] reps;
 		
 		public WeightSet(ExerciseDetailsData data) {
-			this.setClassName("exercise-details-weight-set");
 			this.weight = data.getWeight();
 			this.reps = data.getReps();
 			this.setHeight("400px");
 			this.setWidth(315*(reps.length==1?2:reps.length)+"px");
 			DecimalFormat df = new DecimalFormat("#0.00");
 			Span weightSpan = new Span(df.format(weight)+" kg");
-			weightSpan.addClassName("exercise-details-span-blue");
-			weightSpan.addClassName("exercise-details-span-weight");
+			weightSpan.addClassNames(GymStyles.DETAILS_VALUE);
 			Span percentSpan = new Span(df.format(data.getPercentOfWeight()));
-			percentSpan.addClassName("exercise-details-span-blue");
-			percentSpan.addClassName("exercise-details-span-weight");
+			percentSpan.addClassNames(GymStyles.DETAILS_VALUE);
 			Span percentTextSpan = new Span(" % of total\n");
-			percentTextSpan.addClassName("exercise-details-span-white");
-			percentTextSpan.addClassName("exercise-details-span-weight");
+			percentTextSpan.addClassNames(GymStyles.DETAILS_TEXT);
 			Span lineBreak = new Span(" | ");
-			lineBreak.addClassName("exercise-details-span-white");
-			lineBreak.addClassName("exercise-details-span-weight");
+			lineBreak.addClassNames(GymStyles.DETAILS_TEXT);
 			Div weightDiv = new Div();
-			weightDiv.setClassName("exercise-details-weight-div");
+			weightDiv.setWidth("600px");
+			weightDiv.addClassNames(Margin.AUTO);
 			weightDiv.add(weightSpan,lineBreak,percentSpan,percentTextSpan);
 			Div[] repsDivs = new Div[reps.length];
 			for(int i=0;i<reps.length;i++) {
 				Span repSpan = new Span(reps[i]+"");
-				repSpan.addClassName("exercise-details-span-blue");
-				repSpan.addClassName("exercise-details-span-reps");
+				repSpan.addClassNames(GymStyles.DETAILS_VALUE);
 				Span repTextSpan = new Span(" reps ");
-				repTextSpan.addClassName("exercise-details-span-white");
-				repTextSpan.addClassName("exercise-details-span-reps");
+				repTextSpan.addClassNames(GymStyles.DETAILS_TEXT);
 				Span lpCount = new Span(data.getRepsCount()[i]+"");
-				lpCount.addClassName("exercise-details-span-blue");
-				lpCount.addClassName("exercise-details-span-reps");
+				lpCount.addClassNames(GymStyles.DETAILS_VALUE);
 				Span lpCountSpan = new Span(" LP\n");
-				lpCountSpan.addClassName("exercise-details-span-white");
-				lpCountSpan.addClassName("exercise-details-span-reps");
+				lpCountSpan.addClassNames(GymStyles.DETAILS_TEXT);
 				Span weightPercentSpan = new Span(df.format(data.getPercentRepsInWeight()[i]));
-				weightPercentSpan.addClassName("exercise-details-span-blue");
-				weightPercentSpan.addClassName("exercise-details-span-reps");
+				weightPercentSpan.addClassNames(GymStyles.DETAILS_VALUE);
 				Span percentInWeightSpan = new Span(" % in weight\n");
-				percentInWeightSpan.addClassName("exercise-details-span-white");
-				percentInWeightSpan.addClassName("exercise-details-span-reps");
+				percentInWeightSpan.addClassNames(GymStyles.DETAILS_TEXT);
 				Span totalPercentSpan = new Span(df.format(data.getPercentOfRepsInTotal()[i]));
-				totalPercentSpan.addClassName("exercise-details-span-blue");
-				totalPercentSpan.addClassName("exercise-details-span-reps");
+				totalPercentSpan.addClassNames(GymStyles.DETAILS_VALUE);
 				Span percentInTotalSpan = new Span(" % of total");
-				percentInTotalSpan.setClassName("exercise-details-span-white");
-				percentInTotalSpan.setClassName("exercise-details-span-reps");
+				percentInTotalSpan.addClassNames(GymStyles.DETAILS_TEXT);
 				repsDivs[i] = new Div();
 				repsDivs[i].add(repSpan,repTextSpan,lpCount,lpCountSpan,weightPercentSpan,percentInWeightSpan,totalPercentSpan,percentInTotalSpan);
 				repsDivs[i].setHeight(125 + "px");
 				repsDivs[i].setWidth(1025 + "px");
-				repsDivs[i].setClassName("exercise-details-reps-div");
 			}
 			Div repsContainer = new Div();
 			repsContainer.add(repsDivs);
-			repsContainer.setClassName("exercise-details-reps-container");
+			repsContainer.addClassNames(Display.FLEX, FlexDirection.ROW, JustifyContent.AROUND, AlignItems.CENTER, TextAlignment.CENTER);
 			add(weightDiv,repsContainer);
 			
 		}

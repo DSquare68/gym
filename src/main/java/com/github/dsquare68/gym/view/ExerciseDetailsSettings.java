@@ -13,6 +13,7 @@ import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.theme.lumo.LumoUtility.FontSize;
 
 import lombok.Getter;
 
@@ -23,10 +24,18 @@ public class ExerciseDetailsSettings extends HorizontalLayout {
 	private ComboBox exerciseComboBox;
 	public ExerciseDetailsSettings(ArrayList<ExerciseName> exerciseNames) {
 		this.setId("exercise-details-vl");
+		this.setWidthFull();
+		this.addClassNames(GymStyles.HEADER_BAR);
+		this.setJustifyContentMode(JustifyContentMode.CENTER);
+		this.setAlignItems(Alignment.CENTER);
 		Div title = new Div("Szczegóły ćwiczenia");
 		title.setId("exercise-details-title");
+		title.setWidth("30%");
+		title.addClassNames(GymStyles.HEADING);
 		exerciseComboBox = new ComboBox();
 		exerciseComboBox.setId("exercise-details-combobox");
+		exerciseComboBox.setWidth("60%");
+		exerciseComboBox.addClassNames(FontSize.XXXLARGE);
 		exerciseComboBox.setItems(exerciseNames.stream().map(ExerciseName::getName).toArray(String[]::new));
 		exerciseComboBox.addValueChangeListener(setExerciseLisener());
 		this.add(title,exerciseComboBox);

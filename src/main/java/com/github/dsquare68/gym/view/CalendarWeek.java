@@ -12,8 +12,14 @@ import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.HasValue.ValueChangeEvent;
 import com.vaadin.flow.component.HasValue.ValueChangeListener;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.theme.lumo.LumoUtility.AlignItems;
+import com.vaadin.flow.theme.lumo.LumoUtility.Display;
+import com.vaadin.flow.theme.lumo.LumoUtility.FontSize;
+import com.vaadin.flow.theme.lumo.LumoUtility.JustifyContent;
+import com.vaadin.flow.theme.lumo.LumoUtility.Margin;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -33,9 +39,12 @@ public class CalendarWeek extends HorizontalLayout {
 			this.day = day;	
 			ButtonDay ed = this;
 			this.setText(day);
-			this.setClassName("calendar-day-label-no-trening");
+			this.setWidth("60px");
+			this.setHeight("60px");
+			this.addClassNames(FontSize.XXLARGE);
+			this.addThemeVariants(ButtonVariant.LUMO_PRIMARY, ButtonVariant.LUMO_ERROR);
 			this.addClickListener(e -> {
-				this.addClassName("calendar-day-label-trening-selected");
+				GymStyles.setSelected(this, true);
 				ComponentUtil.fireEvent(UI.getCurrent(),new CalendarSelectedDayEvent(ed,false));
 			});
 		}
@@ -43,10 +52,12 @@ public class CalendarWeek extends HorizontalLayout {
 	}
 
 	public CalendarWeek(ArrayList<LocalDate> dates, ArrayList<Integer> duration) {
-		this.setClassName("calendar-week");
+		this.setAlignItems(Alignment.CENTER);
 		String[] days = {"M","Tw","W","Th","F","Sa","Su"};
 		Div dateLabel = new Div();
-		dateLabel.setClassName("calendar-date-label");
+		dateLabel.setWidth("150px");
+		dateLabel.addClassNames(Margin.Left.LARGE, FontSize.XLARGE,
+				Display.FLEX, JustifyContent.AROUND, AlignItems.CENTER);
 		LocalDate first = dates.get(0);
 	    int dayOfWeek = first.getDayOfWeek().getValue(); // Monday=1 ... Sunday=7
 	    LocalDate dateMonday = first.minusDays(dayOfWeek - 1);
@@ -61,12 +72,16 @@ public class CalendarWeek extends HorizontalLayout {
 		}
 		for(LocalDate date: dates) {
 			int d = date.getDayOfWeek().getValue() - 1;
-			this.getChildren().toList().get(1+d).setClassName("calendar-day-label-trening");
-			((ButtonDay) this.getChildren().toList().get(1+d)).setDate(date);
+			ButtonDay dayButton = (ButtonDay) this.getChildren().toList().get(1+d);
+			dayButton.removeThemeVariants(ButtonVariant.LUMO_ERROR);
+			dayButton.addThemeVariants(ButtonVariant.LUMO_SUCCESS);
+			dayButton.setDate(date);
 		}
 		int sum = duration.stream().filter(Objects::nonNull).mapToInt(Integer::intValue).sum();
 		Div durationLabel = new Div(sum/60+"h "+sum%60+"m");
-		durationLabel.setClassName("calendar-duration-label");
+		durationLabel.setWidth("150px");
+		durationLabel.addClassNames(Margin.Right.LARGE, FontSize.XXLARGE,
+				Display.FLEX, JustifyContent.AROUND, AlignItems.CENTER);
 		this.add(durationLabel);
 	}
 }
