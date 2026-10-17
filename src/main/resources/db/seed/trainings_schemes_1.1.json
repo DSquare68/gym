@@ -1,0 +1,682 @@
+{
+  "schema_version": "1.0",
+  "description": "Szablony treningów (schematy) z ciężarami i powtórzeniami docelowymi.",
+  "fields": {
+    "name": "Nazwa schematu",
+    "exercises[].exercise_name_pl": "Polska nazwa ćwiczenia (jak name_pl w pliku ćwiczeń)",
+    "exercises[].sets[]": "serie w kolejności: set, reps, weight_kg"
+  },
+  "trainings": [
+    {
+      "name": "Plecy & Biceps",
+      "exercises": [
+        {
+          "order": 1,
+          "exercise_name_pl": "Martwy ciąg na prostych nogach",
+          "sets": [
+            {
+              "set": 1,
+              "reps": 8,
+              "weight_kg": 70
+            },
+            {
+              "set": 2,
+              "reps": 8,
+              "weight_kg": 70
+            },
+            {
+              "set": 3,
+              "reps": 8,
+              "weight_kg": 70
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "exercise_name_pl": "Podciąganie sztangi w opadzie (wiosłowanie) stojąc",
+          "sets": [
+            {
+              "set": 1,
+              "reps": 8,
+              "weight_kg": 50
+            },
+            {
+              "set": 2,
+              "reps": 8,
+              "weight_kg": 50
+            },
+            {
+              "set": 3,
+              "reps": 8,
+              "weight_kg": 50
+            }
+          ]
+        },
+        {
+          "order": 3,
+          "exercise_name_pl": "Podciąganie sztangielki w opadzie (wiosłowanie)",
+          "sets": [
+            {
+              "set": 1,
+              "reps": 8,
+              "weight_kg": 25
+            },
+            {
+              "set": 2,
+              "reps": 8,
+              "weight_kg": 25
+            },
+            {
+              "set": 3,
+              "reps": 8,
+              "weight_kg": 25
+            }
+          ]
+        },
+        {
+          "order": 4,
+          "exercise_name_pl": "Podciąganie (wiosłowanie) rączki na maszynie siedząc",
+          "sets": [
+            {
+              "set": 1,
+              "reps": 8,
+              "weight_kg": 60
+            },
+            {
+              "set": 2,
+              "reps": 8,
+              "weight_kg": 60
+            },
+            {
+              "set": 3,
+              "reps": 8,
+              "weight_kg": 60
+            }
+          ]
+        },
+        {
+          "order": 5,
+          "exercise_name_pl": "Ściąganie drążka/rączki wyciągu górnego w siadzie szerokim uchwytem (nachwyt)",
+          "sets": [
+            {
+              "set": 1,
+              "reps": 8,
+              "weight_kg": 50
+            },
+            {
+              "set": 2,
+              "reps": 8,
+              "weight_kg": 50
+            },
+            {
+              "set": 3,
+              "reps": 8,
+              "weight_kg": 50
+            }
+          ]
+        },
+        {
+          "order": 6,
+          "exercise_name_pl": "Przyciąganie rączki na maszynie siedząc",
+          "sets": [
+            {
+              "set": 1,
+              "reps": 8,
+              "weight_kg": 30
+            },
+            {
+              "set": 2,
+              "reps": 8,
+              "weight_kg": 30
+            },
+            {
+              "set": 3,
+              "reps": 8,
+              "weight_kg": 30
+            }
+          ]
+        },
+        {
+          "order": 7,
+          "exercise_name_pl": "Uginanie ramion ze sztangą podchwytem na modlitewniku",
+          "sets": [
+            {
+              "set": 1,
+              "reps": 8,
+              "weight_kg": 25
+            },
+            {
+              "set": 2,
+              "reps": 8,
+              "weight_kg": 25
+            },
+            {
+              "set": 3,
+              "reps": 8,
+              "weight_kg": 25
+            }
+          ]
+        },
+        {
+          "order": 8,
+          "exercise_name_pl": "Uginanie ramion ze sztangielkami stojąc podchwytem (z supinacją nadgarstka) oburącz",
+          "sets": [
+            {
+              "set": 1,
+              "reps": 8,
+              "weight_kg": 12.5
+            },
+            {
+              "set": 2,
+              "reps": 8,
+              "weight_kg": 12.5
+            },
+            {
+              "set": 3,
+              "reps": 8,
+              "weight_kg": 12.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Nogi & Barki",
+      "exercises": [
+        {
+          "order": 1,
+          "exercise_name_pl": "Przysiady ze sztangą na barkach",
+          "sets": [
+            {
+              "set": 1,
+              "reps": 8,
+              "weight_kg": 60
+            },
+            {
+              "set": 2,
+              "reps": 8,
+              "weight_kg": 60
+            },
+            {
+              "set": 3,
+              "reps": 8,
+              "weight_kg": 60
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "exercise_name_pl": "Przysiady na suwnicy skośnej (hack-maszynie)",
+          "sets": [
+            {
+              "set": 1,
+              "reps": 8,
+              "weight_kg": 120
+            },
+            {
+              "set": 2,
+              "reps": 8,
+              "weight_kg": 120
+            },
+            {
+              "set": 3,
+              "reps": 8,
+              "weight_kg": 120
+            }
+          ]
+        },
+        {
+          "order": 3,
+          "exercise_name_pl": "Przysiady na suwnicy poziomej (hack-maszynie)",
+          "sets": [
+            {
+              "set": 1,
+              "reps": 8,
+              "weight_kg": 85
+            },
+            {
+              "set": 2,
+              "reps": 8,
+              "weight_kg": 85
+            },
+            {
+              "set": 3,
+              "reps": 8,
+              "weight_kg": 85
+            }
+          ]
+        },
+        {
+          "order": 4,
+          "exercise_name_pl": "Prostowanie/Uginanie nóg w siadzie",
+          "sets": [
+            {
+              "set": 1,
+              "reps": 8,
+              "weight_kg": 25
+            },
+            {
+              "set": 2,
+              "reps": 8,
+              "weight_kg": 25
+            },
+            {
+              "set": 3,
+              "reps": 8,
+              "weight_kg": 25
+            }
+          ]
+        },
+        {
+          "order": 5,
+          "exercise_name_pl": "Wyciskanie sztangielek w siadzie na ławce pionowej do góry",
+          "sets": [
+            {
+              "set": 1,
+              "reps": 8,
+              "weight_kg": 17.5
+            },
+            {
+              "set": 2,
+              "reps": 8,
+              "weight_kg": 17.5
+            },
+            {
+              "set": 3,
+              "reps": 8,
+              "weight_kg": 17.5
+            }
+          ]
+        },
+        {
+          "order": 6,
+          "exercise_name_pl": "Arnoldki siedząc",
+          "sets": [
+            {
+              "set": 1,
+              "reps": 8,
+              "weight_kg": 15
+            },
+            {
+              "set": 2,
+              "reps": 8,
+              "weight_kg": 15
+            },
+            {
+              "set": 3,
+              "reps": 8,
+              "weight_kg": 15
+            }
+          ]
+        },
+        {
+          "order": 7,
+          "exercise_name_pl": "Unoszenie sztangielek bokiem w górę",
+          "sets": [
+            {
+              "set": 1,
+              "reps": 8,
+              "weight_kg": 10
+            },
+            {
+              "set": 2,
+              "reps": 8,
+              "weight_kg": 10
+            },
+            {
+              "set": 3,
+              "reps": 8,
+              "weight_kg": 10
+            }
+          ]
+        },
+        {
+          "order": 8,
+          "exercise_name_pl": "Prostowanie ramion na maszynie w górę",
+          "sets": [
+            {
+              "set": 1,
+              "reps": 8,
+              "weight_kg": 25
+            },
+            {
+              "set": 2,
+              "reps": 8,
+              "weight_kg": 25
+            },
+            {
+              "set": 3,
+              "reps": 8,
+              "weight_kg": 25
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Klata",
+      "exercises": [
+        {
+          "order": 1,
+          "exercise_name_pl": "Rozpiętki ze sztangielkami w leżeniu na ławce poziomej",
+          "sets": [
+            {
+              "set": 1,
+              "reps": 10,
+              "weight_kg": 7
+            },
+            {
+              "set": 2,
+              "reps": 10,
+              "weight_kg": 9
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "exercise_name_pl": "Wyciskanie sztangi w leżeniu na ławce poziomej",
+          "sets": [
+            {
+              "set": 1,
+              "reps": 8,
+              "weight_kg": 60
+            },
+            {
+              "set": 2,
+              "reps": 8,
+              "weight_kg": 70
+            },
+            {
+              "set": 3,
+              "reps": 8,
+              "weight_kg": 72.5
+            },
+            {
+              "set": 4,
+              "reps": 8,
+              "weight_kg": 75
+            }
+          ]
+        },
+        {
+          "order": 3,
+          "exercise_name_pl": "Wyciskanie sztangi w leżeniu na ławce skośnej-głową w dół",
+          "sets": [
+            {
+              "set": 1,
+              "reps": 8,
+              "weight_kg": 60
+            },
+            {
+              "set": 2,
+              "reps": 8,
+              "weight_kg": 60
+            },
+            {
+              "set": 3,
+              "reps": 8,
+              "weight_kg": 60
+            }
+          ]
+        },
+        {
+          "order": 4,
+          "exercise_name_pl": "Wyciskanie sztangielek w leżeniu na ławce poziomej",
+          "sets": [
+            {
+              "set": 1,
+              "reps": 8,
+              "weight_kg": 27.5
+            },
+            {
+              "set": 2,
+              "reps": 8,
+              "weight_kg": 27.5
+            },
+            {
+              "set": 3,
+              "reps": 8,
+              "weight_kg": 27.5
+            }
+          ]
+        },
+        {
+          "order": 5,
+          "exercise_name_pl": "Wyciskanie sztangielek w leżeniu na ławce skośnej-głową w górę",
+          "sets": [
+            {
+              "set": 1,
+              "reps": 8,
+              "weight_kg": 27.5
+            },
+            {
+              "set": 2,
+              "reps": 8,
+              "weight_kg": 27.5
+            },
+            {
+              "set": 3,
+              "reps": 8,
+              "weight_kg": 27.5
+            }
+          ]
+        },
+        {
+          "order": 6,
+          "exercise_name_pl": "Wyciskania poziome w siadzie na maszynie",
+          "sets": [
+            {
+              "set": 1,
+              "reps": 8,
+              "weight_kg": 35
+            },
+            {
+              "set": 2,
+              "reps": 8,
+              "weight_kg": 35
+            },
+            {
+              "set": 3,
+              "reps": 8,
+              "weight_kg": 35
+            }
+          ]
+        },
+        {
+          "order": 7,
+          "exercise_name_pl": "Rozpiętki w siadzie na maszynie",
+          "sets": [
+            {
+              "set": 1,
+              "reps": 8,
+              "weight_kg": 70
+            },
+            {
+              "set": 2,
+              "reps": 8,
+              "weight_kg": 70
+            },
+            {
+              "set": 3,
+              "reps": 8,
+              "weight_kg": 70
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Biceps & Triceps",
+      "exercises": [
+        {
+          "order": 1,
+          "exercise_name_pl": "Uginanie ramion ze sztangą stojąc podchwytem",
+          "sets": [
+            {
+              "set": 1,
+              "reps": 8,
+              "weight_kg": 30
+            },
+            {
+              "set": 2,
+              "reps": 8,
+              "weight_kg": 30
+            },
+            {
+              "set": 3,
+              "reps": 8,
+              "weight_kg": 30
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "exercise_name_pl": "Uginanie ramion ze sztangielkami stojąc podchwytem (z supinacją nadgarstka)",
+          "sets": [
+            {
+              "set": 1,
+              "reps": 8,
+              "weight_kg": 15
+            },
+            {
+              "set": 2,
+              "reps": 8,
+              "weight_kg": 15
+            },
+            {
+              "set": 3,
+              "reps": 8,
+              "weight_kg": 15
+            }
+          ]
+        },
+        {
+          "order": 3,
+          "exercise_name_pl": "Wyciskanie francuskie sztangi w leżeniu",
+          "sets": [
+            {
+              "set": 1,
+              "reps": 8,
+              "weight_kg": 30
+            },
+            {
+              "set": 2,
+              "reps": 8,
+              "weight_kg": 30
+            },
+            {
+              "set": 3,
+              "reps": 8,
+              "weight_kg": 30
+            }
+          ]
+        },
+        {
+          "order": 4,
+          "exercise_name_pl": "Prostowanie ramienia ze sztangielką w opadzie tułowia",
+          "sets": [
+            {
+              "set": 1,
+              "reps": 8,
+              "weight_kg": 12.5
+            },
+            {
+              "set": 2,
+              "reps": 8,
+              "weight_kg": 12.5
+            },
+            {
+              "set": 3,
+              "reps": 8,
+              "weight_kg": 12.5
+            }
+          ]
+        },
+        {
+          "order": 5,
+          "exercise_name_pl": "Uginanie ramienia ze sztangielką w siadzie - w podporze o kolano",
+          "sets": [
+            {
+              "set": 1,
+              "reps": 8,
+              "weight_kg": 15
+            },
+            {
+              "set": 2,
+              "reps": 8,
+              "weight_kg": 15
+            },
+            {
+              "set": 3,
+              "reps": 8,
+              "weight_kg": 15
+            }
+          ]
+        },
+        {
+          "order": 6,
+          "exercise_name_pl": "Prostowanie ramion na wyciągu w płaszczyźnie poziomej stojąc",
+          "sets": [
+            {
+              "set": 1,
+              "reps": 8,
+              "weight_kg": 25
+            },
+            {
+              "set": 2,
+              "reps": 8,
+              "weight_kg": 25
+            },
+            {
+              "set": 3,
+              "reps": 8,
+              "weight_kg": 25
+            }
+          ]
+        },
+        {
+          "order": 7,
+          "exercise_name_pl": "Uginanie ramion oburącz na modlitewniku na maszynie",
+          "sets": [
+            {
+              "set": 1,
+              "reps": 8,
+              "weight_kg": 25
+            },
+            {
+              "set": 2,
+              "reps": 8,
+              "weight_kg": 25
+            },
+            {
+              "set": 3,
+              "reps": 8,
+              "weight_kg": 25
+            }
+          ]
+        },
+        {
+          "order": 8,
+          "exercise_name_pl": "Prostowanie ramion na maszynie w dół",
+          "sets": [
+            {
+              "set": 1,
+              "reps": 8,
+              "weight_kg": 30
+            },
+            {
+              "set": 2,
+              "reps": 8,
+              "weight_kg": 30
+            },
+            {
+              "set": 3,
+              "reps": 8,
+              "weight_kg": 30
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

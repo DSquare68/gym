@@ -35,7 +35,9 @@ public interface ExerciseNameRepository extends JpaRepository<ExerciseName, Long
      *
      * <p>Idempotent by way of the {@code uq_exercise_names_name} constraint plus
      * this pre-check, so re-running it after an upgrade adds only what is
-     * genuinely new and never touches a row the user edited or created.
+     * genuinely new and never touches a row the user edited or created. Names
+     * repeated within {@code candidates} itself (the seed file has a few) are
+     * inserted once, first occurrence wins.
      *
      * @return how many rows were actually inserted
      */
@@ -47,7 +49,7 @@ public interface ExerciseNameRepository extends JpaRepository<ExerciseName, Long
                 .map(ExerciseName::getName)
                 .collect(Collectors.toSet());
         List<ExerciseName> missing = candidates.stream()
-                .filter(candidate -> !present.contains(candidate.getName()))
+                .filter(candidate -> present.add(candidate.getName()))
                 .toList();
         saveAll(missing);
         return missing.size();

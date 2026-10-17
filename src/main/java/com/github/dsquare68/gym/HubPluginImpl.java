@@ -9,9 +9,13 @@ import com.github.dsquare68.homeforgeapi.spi.PluginRoute;
 import com.github.dsquare68.gym.entity.ExerciseName;
 import com.github.dsquare68.gym.persistence.GymPersistence;
 import com.github.dsquare68.gym.seed.ExerciseSeed;
+import com.github.dsquare68.gym.seed.TrainingSeed;
+import com.github.dsquare68.gym.entity.TrainingRecord;
 import com.github.dsquare68.gym.view.MainView;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.pf4j.Extension;
 
@@ -135,6 +139,7 @@ public class HubPluginImpl implements HubPlugin {
 			persistence = new GymPersistence(db().dataSource());
 		}
 		seedExerciseNames();
+		seedTrainingSchemes();
 	}
 
 	/**
@@ -154,6 +159,24 @@ public class HubPluginImpl implements HubPlugin {
 					seed.size());
 		} catch (RuntimeException e) {
 			LOG.log(System.Logger.Level.ERROR, "Could not seed the exercise catalogue.", e);
+		}
+	}
+
+	/**
+	 * Loads the base training schemes from {@link TrainingSeed#SEED_RESOURCE} into
+	 * {@code TRAININGS} as templates, skipping schemes that are already there.
+	 * Must run after {@link #seedExerciseNames()}, which it resolves names against.
+	 */
+	private void seedTrainingSchemes() {
+		try {
+			Map<String, Long> ids = new HashMap<>();
+			persistence.exerciseNames().findAll().forEach(e -> ids.put(e.getName(), e.getId()));
+			List<TrainingRecord> seed = TrainingSeed.load(ids, unknown -> LOG.log(System.Logger.Level.WARNING,
+					"Training seed: exercise not in the catalogue, skipped: {0}", unknown));
+			int inserted = persistence.trainings().saveMissingSchemes(seed);
+			LOG.log(System.Logger.Level.INFO, "Training schemes seeded: {0} new scheme(s) inserted.", inserted);
+		} catch (RuntimeException e) {
+			LOG.log(System.Logger.Level.ERROR, "Could not seed the training schemes.", e);
 		}
 	}
 

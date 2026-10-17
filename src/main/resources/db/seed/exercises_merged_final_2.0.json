@@ -1,0 +1,818 @@
+{
+  "schema_version": "1.0",
+  "description": "Baza ćwiczeń z polskimi nazwami i kategoriami.",
+  "fields": {
+    "name_pl": "Polska nazwa ćwiczenia",
+    "category": "Główna kategoria (partia mięśniowa)"
+  },
+  "exercises": [
+    {
+      "name_pl": "Wyciskanie w leżeniu na ławce poziomej",
+      "category": "Klatka piersiowa"
+    },
+    {
+      "name_pl": "Wyciskanie sztangi w leżeniu na ławce poziomej",
+      "category": "Klatka piersiowa"
+    },
+    {
+      "name_pl": "Wyciskanie sztangielek w leżeniu na ławce poziomej",
+      "category": "Klatka piersiowa"
+    },
+    {
+      "name_pl": "Wyciskanie sztangi w leżeniu na ławce skośnej-głową w górę",
+      "category": "Klatka piersiowa"
+    },
+    {
+      "name_pl": "Wyciskanie sztangielek w leżeniu na ławce skośnej-głową w górę",
+      "category": "Klatka piersiowa"
+    },
+    {
+      "name_pl": "Wyciskanie sztangi w leżeniu na ławce skośnej-głową w dół",
+      "category": "Klatka piersiowa"
+    },
+    {
+      "name_pl": "Wyciskanie sztangielek w leżeniu na ławce skośnej-głową w dół",
+      "category": "Klatka piersiowa"
+    },
+    {
+      "name_pl": "Wyciskanie poziome (chest press)",
+      "category": "Klatka piersiowa"
+    },
+    {
+      "name_pl": "Wyciskania poziome w siadzie na maszynie",
+      "category": "Klatka piersiowa"
+    },
+    {
+      "name_pl": "Pompki",
+      "category": "Klatka piersiowa"
+    },
+    {
+      "name_pl": "Pompki szerokie",
+      "category": "Klatka piersiowa"
+    },
+    {
+      "name_pl": "Pompki diamentowe",
+      "category": "Klatka piersiowa"
+    },
+    {
+      "name_pl": "Rozpiętki ze sztangielkami w leżeniu na ławce poziomej",
+      "category": "Klatka piersiowa"
+    },
+    {
+      "name_pl": "Rozpiętki ze sztangielkami w leżeniu na ławce skośnej -głową do góry",
+      "category": "Klatka piersiowa"
+    },
+    {
+      "name_pl": "Rozpiętki na wyciągu",
+      "category": "Klatka piersiowa"
+    },
+    {
+      "name_pl": "Krzyżowanie linek wyciągu w staniu",
+      "category": "Klatka piersiowa"
+    },
+    {
+      "name_pl": "Rozpiętki w siadzie na maszynie",
+      "category": "Klatka piersiowa"
+    },
+    {
+      "name_pl": "Pompki na poręczach",
+      "category": "Klatka piersiowa"
+    },
+    {
+      "name_pl": "Przenoszenie sztangielki w leżeniu w poprzek ławki poziomej",
+      "category": "Klatka piersiowa"
+    },
+    {
+      "name_pl": "Przenoszenie sztangi w leżeniu na ławce poziomej",
+      "category": "Klatka piersiowa"
+    },
+    {
+      "name_pl": "Podciąganie na drążku szerokim uchwytem (nachwyt)",
+      "category": "Plecy"
+    },
+    {
+      "name_pl": "Podciąganie na drążku w uchwycie neutralnym",
+      "category": "Plecy"
+    },
+    {
+      "name_pl": "Podciąganie na drążku podchwytem",
+      "category": "Plecy"
+    },
+    {
+      "name_pl": "Podciąganie podchwytem",
+      "category": "Plecy"
+    },
+    {
+      "name_pl": "Ściąganie drążka/rączki wyciągu górnego w siadzie uchwyt neutralny",
+      "category": "Plecy"
+    },
+    {
+      "name_pl": "Ściąganie drążka/rączki wyciągu górnego w siadzie szerokim uchwytem (nachwyt)",
+      "category": "Plecy"
+    },
+    {
+      "name_pl": "Ściąganie drążka/rączki wyciągu górnego w siadzie podchwytem",
+      "category": "Plecy"
+    },
+    {
+      "name_pl": "Przyciąganie linki wyciągu dolnego w siadzie płaskim",
+      "category": "Plecy"
+    },
+    {
+      "name_pl": "Przyciąganie linki wyciągu górnego w siadzie",
+      "category": "Plecy"
+    },
+    {
+      "name_pl": "Podciąganie sztangi w opadzie (wiosłowanie)",
+      "category": "Plecy"
+    },
+    {
+      "name_pl": "Wiosłowanie w opadzie tułowia",
+      "category": "Plecy"
+    },
+    {
+      "name_pl": "Podciąganie sztangielki w opadzie (wiosłowanie)",
+      "category": "Plecy"
+    },
+    {
+      "name_pl": "Wiosłowanie sztangielką jednorącz",
+      "category": "Plecy"
+    },
+    {
+      "name_pl": "Podciąganie końca sztangi w opadzie",
+      "category": "Plecy"
+    },
+    {
+      "name_pl": "Wiosłowanie na maszynie",
+      "category": "Plecy"
+    },
+    {
+      "name_pl": "Podciąganie (wiosłowanie) w leżeniu na ławeczce poziomej",
+      "category": "Plecy"
+    },
+    {
+      "name_pl": "Podciąganie australijskie",
+      "category": "Plecy"
+    },
+    {
+      "name_pl": "Martwy ciąg",
+      "category": "Plecy"
+    },
+    {
+      "name_pl": "Martwy ciąg z podwyższenia (rack pull)",
+      "category": "Plecy"
+    },
+    {
+      "name_pl": "Ściąganie drążka wyciągu górnego prostymi ramionami",
+      "category": "Plecy"
+    },
+    {
+      "name_pl": "Unoszenie tułowia z opadu",
+      "category": "Plecy"
+    },
+    {
+      "name_pl": "Hiperekstensje",
+      "category": "Plecy"
+    },
+    {
+      "name_pl": "Przyciąganie liny wyciągu do twarzy (face pull)",
+      "category": "Plecy"
+    },
+    {
+      "name_pl": "Wyciskanie nad głowę",
+      "category": "Barki"
+    },
+    {
+      "name_pl": "Wyciskanie na barki",
+      "category": "Barki"
+    },
+    {
+      "name_pl": "Wyciskanie sztangi sprzed głowy",
+      "category": "Barki"
+    },
+    {
+      "name_pl": "Wyciskanie sztangi zza głowy",
+      "category": "Barki"
+    },
+    {
+      "name_pl": "Wyciskanie sztangielek",
+      "category": "Barki"
+    },
+    {
+      "name_pl": "Arnoldki",
+      "category": "Barki"
+    },
+    {
+      "name_pl": "Wyciskanie nad głowę na maszynie",
+      "category": "Barki"
+    },
+    {
+      "name_pl": "Unoszenie ramion bokiem",
+      "category": "Barki"
+    },
+    {
+      "name_pl": "Unoszenie sztangielek bokiem w górę",
+      "category": "Barki"
+    },
+    {
+      "name_pl": "Unoszenie ramion bokiem w górę z linkami wyciągu",
+      "category": "Barki"
+    },
+    {
+      "name_pl": "Unoszenie ramion w przód ze sztangą",
+      "category": "Barki"
+    },
+    {
+      "name_pl": "Unoszenie ramion w przód z linkami wyciągu",
+      "category": "Barki"
+    },
+    {
+      "name_pl": "Unoszenie ramion w przód ze sztangielkami",
+      "category": "Barki"
+    },
+    {
+      "name_pl": "Unoszenie sztangielek w opadzie tułowia",
+      "category": "Barki"
+    },
+    {
+      "name_pl": "Unoszenie ramion ze sztangielkami w leżeniu",
+      "category": "Barki"
+    },
+    {
+      "name_pl": "Unoszenie ramion bokiem w górę w opadzie tułowia z linkami wyciągu",
+      "category": "Barki"
+    },
+    {
+      "name_pl": "Odwrotne rozpiętki",
+      "category": "Barki"
+    },
+    {
+      "name_pl": "Odwrotne rozpiętki na maszynie",
+      "category": "Barki"
+    },
+    {
+      "name_pl": "Podciąganie sztangi wzdłuż tułowia",
+      "category": "Barki"
+    },
+    {
+      "name_pl": "Podciąganie sztangielek wzdłuż tułowia",
+      "category": "Barki"
+    },
+    {
+      "name_pl": "Podciąganie kettlebell wzdłuż tułowia",
+      "category": "Barki"
+    },
+    {
+      "name_pl": "Przyciąganie liny wyciągu do twarzy (face pull)",
+      "category": "Barki"
+    },
+    {
+      "name_pl": "Szrugsy",
+      "category": "Barki"
+    },
+    {
+      "name_pl": "Szrugsy ze sztangą z przodu stojąc",
+      "category": "Barki"
+    },
+    {
+      "name_pl": "Szrugsy ze sztangą z tyłu stojąc",
+      "category": "Barki"
+    },
+    {
+      "name_pl": "Szrugsy z hantlami stojąc",
+      "category": "Barki"
+    },
+    {
+      "name_pl": "Uginanie ramion ze sztangą stojąc podchwytem",
+      "category": "Biceps"
+    },
+    {
+      "name_pl": "Uginanie ramion ze sztangielkami",
+      "category": "Biceps"
+    },
+    {
+      "name_pl": "Uginanie ramion ze sztangielkami stojąc podchwytem (z supinacją nadgarstka)",
+      "category": "Biceps"
+    },
+    {
+      "name_pl": "Uginanie ramion ze sztangielkami stojąc (uchwyt młotkowy)",
+      "category": "Biceps"
+    },
+    {
+      "name_pl": "Uginanie ramion ze sztangielkami w siadzie na ławce skośnej (z supinacją nadgarstka)",
+      "category": "Biceps"
+    },
+    {
+      "name_pl": "Uginanie ramion na modlitewniku",
+      "category": "Biceps"
+    },
+    {
+      "name_pl": "Uginanie ramion ze sztangą podchwytem na modlitewniku",
+      "category": "Biceps"
+    },
+    {
+      "name_pl": "Uginanie ramienia ze sztangielką na modlitewniku",
+      "category": "Biceps"
+    },
+    {
+      "name_pl": "Uginanie ramienia ze sztangielką w siadzie - w podporze o kolano",
+      "category": "Biceps"
+    },
+    {
+      "name_pl": "Uginanie ramion na wyciągu",
+      "category": "Biceps"
+    },
+    {
+      "name_pl": "Uginanie ramion podchwytem stojąc-z rączką wyciągu",
+      "category": "Biceps"
+    },
+    {
+      "name_pl": "Uginanie ramion ze sztangą łamaną",
+      "category": "Biceps"
+    },
+    {
+      "name_pl": "Uginanie ramion w leżeniu przodem na ławce skośnej (spider curl)",
+      "category": "Biceps"
+    },
+    {
+      "name_pl": "Uginanie ramion ze sztangą nachwytem stojąc",
+      "category": "Biceps"
+    },
+    {
+      "name_pl": "Uginanie ramion ze sztangą nachwytem na modlitewniku",
+      "category": "Biceps"
+    },
+    {
+      "name_pl": "Uginanie ramion naprzemiennie na modlitewniku na maszynie",
+      "category": "Biceps"
+    },
+    {
+      "name_pl": "Uginanie ramion oburącz na modlitewniku na maszynie",
+      "category": "Biceps"
+    },
+    {
+      "name_pl": "Prostowanie ramion na wyciągu stojąc",
+      "category": "Triceps"
+    },
+    {
+      "name_pl": "Prostowanie ramienia podchwytem na wyciągu stojąc",
+      "category": "Triceps"
+    },
+    {
+      "name_pl": "Prostowanie ramion na wyciągu z liną",
+      "category": "Triceps"
+    },
+    {
+      "name_pl": "Prostowanie ramion na wyciągu z prostym drążkiem",
+      "category": "Triceps"
+    },
+    {
+      "name_pl": "Wyciskanie francuskie sztangi w siadzie",
+      "category": "Triceps"
+    },
+    {
+      "name_pl": "Wyciskanie francuskie jednorącz sztangielki w siadzie",
+      "category": "Triceps"
+    },
+    {
+      "name_pl": "Prostowanie ramion nad głową z linką wyciągu",
+      "category": "Triceps"
+    },
+    {
+      "name_pl": "Wyciskanie francuskie sztangi w leżeniu",
+      "category": "Triceps"
+    },
+    {
+      "name_pl": "Wyciskanie francuskie sztangielki w leżeniu",
+      "category": "Triceps"
+    },
+    {
+      "name_pl": "Wyciskanie sztangi w leżeniu na ławce poziomej wąskim uchwytem",
+      "category": "Triceps"
+    },
+    {
+      "name_pl": "Wyciskanie w leżeniu na ławce poziomej wąskim uchwytem",
+      "category": "Triceps"
+    },
+    {
+      "name_pl": "Pompki na poręczach (na triceps)",
+      "category": "Triceps"
+    },
+    {
+      "name_pl": "Pompki w podporze tyłem",
+      "category": "Triceps"
+    },
+    {
+      "name_pl": "Prostowanie ramienia ze sztangielką w opadzie tułowia",
+      "category": "Triceps"
+    },
+    {
+      "name_pl": "Odwodzenie nogi w tył",
+      "category": "Triceps"
+    },
+    {
+      "name_pl": "Prostowanie ramion na wyciągu w płaszczyźnie poziomej stojąc",
+      "category": "Triceps"
+    },
+    {
+      "name_pl": "Prostowanie ramion na wyciągu w płaszczyźnie poziomej w podporze",
+      "category": "Triceps"
+    },
+    {
+      "name_pl": "Prostowanie ramion na maszynie w górę",
+      "category": "Triceps"
+    },
+    {
+      "name_pl": "Prostowanie ramion na maszynie w dół",
+      "category": "Triceps"
+    },
+    {
+      "name_pl": "Przysiady ze sztangą na barkach",
+      "category": "Mięsień czworogłowy uda"
+    },
+    {
+      "name_pl": "Przysiady ze sztangą trzymaną z pzodu",
+      "category": "Mięsień czworogłowy uda"
+    },
+    {
+      "name_pl": "Przysiad goblet",
+      "category": "Mięsień czworogłowy uda"
+    },
+    {
+      "name_pl": "Hack-przysiady",
+      "category": "Mięsień czworogłowy uda"
+    },
+    {
+      "name_pl": "Przysiady na suwnicy skośnej (hack-maszynie)",
+      "category": "Mięsień czworogłowy uda"
+    },
+    {
+      "name_pl": "Wypychanie ciężaru na suwnicy (maszynie)",
+      "category": "Mięsień czworogłowy uda"
+    },
+    {
+      "name_pl": "Przysiad bułgarski",
+      "category": "Mięsień czworogłowy uda"
+    },
+    {
+      "name_pl": "Przysiady wykroczne",
+      "category": "Mięsień czworogłowy uda"
+    },
+    {
+      "name_pl": "Nożyce",
+      "category": "Mięsień czworogłowy uda"
+    },
+    {
+      "name_pl": "Wykroki w marszu",
+      "category": "Mięsień czworogłowy uda"
+    },
+    {
+      "name_pl": "Wykroki w tył",
+      "category": "Mięsień czworogłowy uda"
+    },
+    {
+      "name_pl": "Wykroki w przód",
+      "category": "Mięsień czworogłowy uda"
+    },
+    {
+      "name_pl": "Wysoki step ze sztangą/sztangielkami",
+      "category": "Mięsień czworogłowy uda"
+    },
+    {
+      "name_pl": "Prostowanie nóg w siadzie",
+      "category": "Mięsień czworogłowy uda"
+    },
+    {
+      "name_pl": "Syzyfki",
+      "category": "Mięsień czworogłowy uda"
+    },
+    {
+      "name_pl": "Rumuński martwy ciąg",
+      "category": "Mięśnie dwugłowe uda"
+    },
+    {
+      "name_pl": "Martwy ciąg na prostych nogach",
+      "category": "Mięśnie dwugłowe uda"
+    },
+    {
+      "name_pl": "Martwy ciąg",
+      "category": "Mięśnie dwugłowe uda"
+    },
+    {
+      "name_pl": "Skłony ze sztangą trzymaną na karku",
+      "category": "Mięśnie dwugłowe uda"
+    },
+    {
+      "name_pl": "Uginanie nóg w leżeniu",
+      "category": "Mięśnie dwugłowe uda"
+    },
+    {
+      "name_pl": "Uginanie nóg w siadzie",
+      "category": "Mięśnie dwugłowe uda"
+    },
+    {
+      "name_pl": "Uginanie nogi w staniu",
+      "category": "Mięśnie dwugłowe uda"
+    },
+    {
+      "name_pl": "Uginanie nordyckie (nordic curl)",
+      "category": "Mięśnie dwugłowe uda"
+    },
+    {
+      "name_pl": "Unoszenie tułowia na GHD (glute-ham raise)",
+      "category": "Mięśnie dwugłowe uda"
+    },
+    {
+      "name_pl": "Rumuński martwy ciąg na jednej nodze",
+      "category": "Mięśnie dwugłowe uda"
+    },
+    {
+      "name_pl": "Wypychanie bioder (hip thrust)",
+      "category": "Pośladki"
+    },
+    {
+      "name_pl": "Wypychanie bioder ze sztangą",
+      "category": "Pośladki"
+    },
+    {
+      "name_pl": "Mostek biodrowy",
+      "category": "Pośladki"
+    },
+    {
+      "name_pl": "Mostek biodrowy na jednej nodze",
+      "category": "Pośladki"
+    },
+    {
+      "name_pl": "Odwodzenie nogi w tył na wyciągu",
+      "category": "Pośladki"
+    },
+    {
+      "name_pl": "Wymachy nogi w tył w klęku podpartym (donkey kick)",
+      "category": "Pośladki"
+    },
+    {
+      "name_pl": "Przysiad bułgarski",
+      "category": "Pośladki"
+    },
+    {
+      "name_pl": "Rumuński martwy ciąg",
+      "category": "Pośladki"
+    },
+    {
+      "name_pl": "Przysiad sumo",
+      "category": "Pośladki"
+    },
+    {
+      "name_pl": "Wejścia na podwyższenie (step-up)",
+      "category": "Pośladki"
+    },
+    {
+      "name_pl": "Odwodzenie nóg na zewnątrz",
+      "category": "Pośladki"
+    },
+    {
+      "name_pl": "Przeciąganie linki wyciągu między nogami (pull-through)",
+      "category": "Pośladki"
+    },
+    {
+      "name_pl": "Wspięcia na palce w staniu",
+      "category": "Łydki"
+    },
+    {
+      "name_pl": "Wspięcia na palce w staniu na maszynie",
+      "category": "Łydki"
+    },
+    {
+      "name_pl": "Wspięcia na palce w siadzie",
+      "category": "Łydki"
+    },
+    {
+      "name_pl": "Wypychanie ciężaru na maszynie/suwnicy palcami nóg",
+      "category": "Łydki"
+    },
+    {
+      "name_pl": "Ośle wspięcia",
+      "category": "Łydki"
+    },
+    {
+      "name_pl": "Wspięcia na palce na jednej nodze",
+      "category": "Łydki"
+    },
+    {
+      "name_pl": "Wspięcia na palce na hack-maszynie",
+      "category": "Łydki"
+    },
+    {
+      "name_pl": "Odwrotne wspięcia w staniu",
+      "category": "Łydki"
+    },
+    {
+      "name_pl": "Skłony w leżeniu płasko",
+      "category": "Brzuch"
+    },
+    {
+      "name_pl": "Siady z leżenia (brzuszki)",
+      "category": "Brzuch"
+    },
+    {
+      "name_pl": "Ściąganie kolan w siadzie",
+      "category": "Brzuch"
+    },
+    {
+      "name_pl": "Spinanie Unoszenie kolan w leżeniu płasko",
+      "category": "Brzuch"
+    },
+    {
+      "name_pl": "Skręty tułowia w leżeniu",
+      "category": "Brzuch"
+    },
+    {
+      "name_pl": "Skłony tułowia z linką wyciągu siedząc",
+      "category": "Brzuch"
+    },
+    {
+      "name_pl": "Skłony tułowia z linką wyciągu klęcząc",
+      "category": "Brzuch"
+    },
+    {
+      "name_pl": "Unoszenie nóg w zwisie na drążku",
+      "category": "Brzuch"
+    },
+    {
+      "name_pl": "Unoszenie kolan w zwisie na drążku",
+      "category": "Brzuch"
+    },
+    {
+      "name_pl": "Unoszenie nóg w leżeniu na skośnej ławce",
+      "category": "Brzuch"
+    },
+    {
+      "name_pl": "Unoszenie nóg w podporze",
+      "category": "Brzuch"
+    },
+    {
+      "name_pl": "Unoszenie kolan",
+      "category": "Brzuch"
+    },
+    {
+      "name_pl": "Deska (plank)",
+      "category": "Brzuch"
+    },
+    {
+      "name_pl": "Deska bokiem",
+      "category": "Brzuch"
+    },
+    {
+      "name_pl": "Wspinaczka (mountain climbers)",
+      "category": "Brzuch"
+    },
+    {
+      "name_pl": "Skręty tułowia",
+      "category": "Brzuch"
+    },
+    {
+      "name_pl": "Unoszenie tułowia i nóg do litery V (V-up)",
+      "category": "Brzuch"
+    },
+    {
+      "name_pl": "Scyzoryki",
+      "category": "Brzuch"
+    },
+    {
+      "name_pl": "Naprzemienne unoszenie nóg w leżeniu (flutter kicks)",
+      "category": "Brzuch"
+    },
+    {
+      "name_pl": "Martwy robak (dead bug)",
+      "category": "Brzuch"
+    },
+    {
+      "name_pl": "Wyjścia na kółku do ćwiczeń brzucha",
+      "category": "Brzuch"
+    },
+    {
+      "name_pl": "Wyciskanie Pallofa",
+      "category": "Brzuch"
+    },
+    {
+      "name_pl": "Drwal (skośne przyciąganie linki wyciągu)",
+      "category": "Brzuch"
+    },
+    {
+      "name_pl": "Smocza flaga (dragon flag)",
+      "category": "Brzuch"
+    },
+    {
+      "name_pl": "Burpees",
+      "category": "Całe ciało"
+    },
+    {
+      "name_pl": "Zarzut i wyciskanie",
+      "category": "Całe ciało"
+    },
+    {
+      "name_pl": "Podrzut",
+      "category": "Całe ciało"
+    },
+    {
+      "name_pl": "Rwanie",
+      "category": "Całe ciało"
+    },
+    {
+      "name_pl": "Swing z kettlebell",
+      "category": "Całe ciało"
+    },
+    {
+      "name_pl": "Przysiad z wyciśnięciem (thruster)",
+      "category": "Całe ciało"
+    },
+    {
+      "name_pl": "Tureckie wstawanie",
+      "category": "Całe ciało"
+    },
+    {
+      "name_pl": "Man maker (pompka, wiosłowanie i wyciskanie ze sztangielkami)",
+      "category": "Całe ciało"
+    },
+    {
+      "name_pl": "Kompleks ze sztangielkami",
+      "category": "Całe ciało"
+    },
+    {
+      "name_pl": "Uderzenia liną treningową",
+      "category": "Całe ciało"
+    },
+    {
+      "name_pl": "Spacer farmera",
+      "category": "Całe ciało"
+    },
+    {
+      "name_pl": "Pchanie sań",
+      "category": "Całe ciało"
+    },
+    {
+      "name_pl": "Ciągnięcie sań",
+      "category": "Całe ciało"
+    },
+    {
+      "name_pl": "Przenoszenie drążka nad głową na maszynie",
+      "category": "Klatka piersiowa"
+    },
+    {
+      "name_pl": "Wznosy barków Sztrugsy",
+      "category": "Barki"
+    },
+    {
+      "name_pl": "Ściąganie rączki zza pleców na maszynie",
+      "category": "Plecy"
+    },
+    {
+      "name_pl": "Uginanie nóg w leżeniu",
+      "category": "Mięśnie dwugłowe uda"
+    },
+    {
+      "name_pl": "Uginanie nóg w leżeniu na maszynie",
+      "category": "Mięśnie dwugłowe uda"
+    },
+    {
+      "name_pl": "Uginanie nadgarstków podchwytem w siadzie",
+      "category": "Inne"
+    },
+    {
+      "name_pl": "Uginanie nadgarstków nachwytem w siadzie",
+      "category": "Inne"
+    },
+    {
+      "name_pl": "Podciąganie sztangi w opadzie (wiosłowanie) stojąc",
+      "category": "Plecy"
+    },
+    {
+      "name_pl": "Podciąganie (wiosłowanie) rączki na maszynie siedząc",
+      "category": "Plecy"
+    },
+    {
+      "name_pl": "Przyciąganie rączki na maszynie siedząc",
+      "category": "Plecy"
+    },
+    {
+      "name_pl": "Uginanie ramion ze sztangielkami stojąc podchwytem (z supinacją nadgarstka) oburącz",
+      "category": "Biceps"
+    },
+    {
+      "name_pl": "Przysiady na suwnicy poziomej (hack-maszynie)",
+      "category": "Mięsień czworogłowy uda"
+    },
+    {
+      "name_pl": "Prostowanie/Uginanie nóg w siadzie",
+      "category": "Mięsień czworogłowy uda"
+    },
+    {
+      "name_pl": "Wyciskanie sztangielek w siadzie na ławce pionowej do góry",
+      "category": "Barki"
+    },
+    {
+      "name_pl": "Arnoldki siedząc",
+      "category": "Barki"
+    }
+  ]
+}
