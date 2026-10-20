@@ -19,15 +19,15 @@ public class GetCalls {
 	@Autowired
 	private TrainingRepository trainingRepository;
 	
-	@GetMapping("/api/get/exercise_name/{id}")
+	@GetMapping("/exercise_name/{id}")
 	public ExerciseName getExerciseName(@PathVariable("id") int id) {
 		return exerciseNameRepository.findById((long) id).orElse(null);
 		}
-	@GetMapping("/api/get/exercises")
+	@GetMapping("/exercises")
 	public List<ExerciseName> getExercises() {
 		return exerciseNameRepository.findAll();
 	}
-	@GetMapping("/api/get/TrainingSchemas")
+	@GetMapping("/TrainingSchemas")
 	public ArrayList<TrainingRecord> getTrainingSchemas() {
 		ArrayList<TrainingRecord> tr =  trainingRepository.getAllSchemas();
 		return tr;

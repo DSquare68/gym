@@ -23,13 +23,13 @@ public class PostCalls {
 	@Autowired
 	private TrainingRepository trainingRepository;
 	
-	@PostMapping("/api/add/exercise_name")
+	@PostMapping("/exercise_name")
 	public ResponseEntity<ExerciseName> addExercise(@RequestBody ExerciseName e) {
 		namesRepository.save(e);
 		return ResponseEntity.status(200).build();
 	}
 
-	@PostMapping("/api/add/exercise_names")
+	@PostMapping("/exercise_names")
 	public ResponseEntity<ExerciseName> addExercises(@RequestBody List<ExerciseName> es) {
 		es = es.stream().filter(e -> e != null || e.getName() != null).collect(java.util.stream.Collectors.toList());
 		for (ExerciseName e : es)
@@ -37,7 +37,7 @@ public class PostCalls {
 		return ResponseEntity.status(200).build();
 	}
 
-	@PostMapping("/api/add/training_record") // ?type=class
+	@PostMapping("/training_record") // ?type=class
 	public ResponseEntity<TrainingRecord> addTrainingRecord(@RequestBody TrainingRecord t) {
 		trainingRepository.save(t);
 		return ResponseEntity.status(200).build();
@@ -48,7 +48,7 @@ public class PostCalls {
 	 * ResponseEntity<TrainingRecord> addTrainingRecord(@RequestBody String t) { int
 	 * a=0; return ResponseEntity.status(200).build(); }
 	 */
-	@PostMapping("/api/add/training")
+	@PostMapping("/training")
 	public ResponseEntity<TrainingRecord> addTraining(@RequestBody ArrayList<TrainingRecord> ts) {
 		ts = (ArrayList<TrainingRecord>) ts.stream().filter(e -> e != null)
 				.collect(java.util.stream.Collectors.toList());
